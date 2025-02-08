@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=4 uid="uid://cud612tnjxlyy"]
+
+[ext_resource type="Texture2D" uid="uid://djju0agl775jm" path="res://Assest/Board/pieces.png" id="1_jxr0l"]
+[ext_resource type="Texture2D" uid="uid://bs2abvst5wubh" path="res://Assest/Board/Board_Sheet2.png" id="2_a0yi7"]
+
+[sub_resource type="Gradient" id="Gradient_ajfct"]
+offsets = PackedFloat32Array(0, 0.818182, 1)
+colors = PackedColorArray(0.6, 1, 0.6, 1, 0.106034, 0.702704, 0.0117791, 1, 0.0491379, 0.429265, 0.0051703, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u1thy"]
+gradient = SubResource("Gradient_ajfct")
+fill = 1
+fill_from = Vector2(0.5, 0.509174)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7wbm8"]
+texture = ExtResource("2_a0yi7")
+texture_region_size = Vector2i(32, 32)
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+0:1/0 = 0
+2:3/0 = 0
+3:2/0 = 0
+3:3/0 = 0
+2:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_x8qny"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_7wbm8")
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.994
+anchor_bottom = 1.0
+offset_right = 9.59998
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_u1thy")
+expand_mode = 1
+
+[node name="Piece Holder" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.135
+anchor_right = 0.12
+anchor_bottom = 0.833
+offset_top = 0.319992
+offset_right = -62.0
+offset_bottom = -265.744
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+texture = ExtResource("1_jxr0l")
+expand_mode = 1
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.32
+anchor_top = 0.157
+anchor_right = 0.68
+anchor_bottom = 0.863
+offset_left = -6.10352e-05
+offset_top = 7.424
+offset_bottom = -22.7841
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Control"]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAIAAYAAAAAAAMAAAAHAAYAAAAAAAMAAAAGAAYAAAAAAAMAAAAFAAYAAAAAAAMAAAAEAAYAAAAAAAMAAAADAAYAAAAAAAMAAAACAAYAAAAAAAMAAAABAAYAAAAAAAMAAAAAAAUAAAAAAAMAAAAAAAMAAAAAAAEAAAABAAMAAAAAAAEAAAACAAIAAAADAAIAAAADAAIAAAADAAIAAAAEAAEAAAADAAIAAAAFAAEAAAADAAIAAAAGAAEAAAADAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAGAAAAAAABAAIAAAAFAAAAAAABAAIAAAADAAEAAAADAAIAAAABAAIAAAADAAIAAAAAAAIAAAADAAIAAAACAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAAFAAIAAAADAAIAAAAGAAIAAAADAAIAAAAHAAIAAAADAAIAAAAIAAIAAAADAAIAAAAIAAEAAAADAAIAAAAHAAEAAAADAAIAAAAEAAAAAAABAAIAAAADAAAAAAABAAIAAAACAAAAAAABAAIAAAABAAAAAAABAAIAAAAAAAAAAAABAAIAAAAFAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAACAAQAAAAAAAIAAAABAAQAAAAAAAIAAAAAAAQAAAAAAAIAAAADAAQAAAAAAAIAAAACAAEAAAADAAIAAAABAAEAAAADAAIAAAAAAAEAAAADAAIAAAAEAAQAAAAAAAIAAAAFAAUAAAAAAAMAAAAGAAUAAAAAAAMAAAAHAAUAAAAAAAMAAAAIAAUAAAAAAAMAAAAAAAYAAAAAAAMAAAAEAAUAAAAAAAMAAAADAAUAAAAAAAMAAAACAAUAAAAAAAMAAAABAAUAAAAAAAMAAAAGAAcAAAACAAMAAAAHAAcAAAACAAMAAAAIAAcAAAACAAMAAAAAAAcAAAACAAMAAAABAAcAAAACAAMAAAACAAcAAAACAAMAAAADAAcAAAACAAMAAAAEAAcAAAACAAMAAAAFAAcAAAACAAMAAAAGAAQAAAAAAAIAAAAHAAQAAAAAAAIAAAAIAAQAAAAAAAIAAAAEAAIAAAADAAIAAAAFAAQAAAAAAAIAAAA=")
+tile_set = SubResource("TileSet_x8qny")

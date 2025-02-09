@@ -102,9 +102,8 @@ height = 18.0
 scale = Vector2(2, 2)
 texture = ExtResource("1_m3crr")
 region_enabled = true
-region_rect = Rect2(170, 0, 32, 32)
+region_rect = Rect2(0, 0, 32, 32)
 script = ExtResource("2_s1w6r")
-pieces = 5
 
 [node name="Main" type="Button" parent="."]
 anchors_preset = 15

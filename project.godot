@@ -11,24 +11,14 @@ config_version=5
 [application]
 
 config/name="GOG"
-run/main_scene="res://Scene/Main.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
-boot_splash/show_image=false
-config/icon="res://GOG_Logo.png"
-config/show_image=false
-
-[autoload]
-
-Global="*res://Script/Global.gd"
 
 [display]
 
 window/size/viewport_width=1600
 window/size/viewport_height=768
 window/size/mode=2
-window/size/always_on_top=true
 window/stretch/mode="viewport"
-window/stretch/aspect="ignore"
 window/handheld/orientation=4
 window/canvas_textures/default_texture_filter=1
 
@@ -39,18 +29,6 @@ folder_colors={
 "res://Scene/": "teal",
 "res://Script/": "yellow"
 }
-
-[global_group]
-
-black_piece=""
-
-[input_devices]
-
-pointing/emulate_touch_from_mouse=true
-
-[layer_names]
-
-2d_physics/layer_2="Border"
 
 [rendering]
 

@@ -1,10 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://cud612tnjxlyy"]
+[gd_scene load_steps=11 format=4 uid="uid://cud612tnjxlyy"]
 
 [ext_resource type="Script" path="res://Script/Main.gd" id="1_jjkbb"]
 [ext_resource type="Texture2D" uid="uid://djju0agl775jm" path="res://Assest/Board/pieces.png" id="1_jxr0l"]
 [ext_resource type="Texture2D" uid="uid://bs2abvst5wubh" path="res://Assest/Board/Board_Sheet2.png" id="2_a0yi7"]
 [ext_resource type="Texture2D" uid="uid://xy6l648vcojv" path="res://Assest/Board/Border.png" id="3_yqk3d"]
-[ext_resource type="PackedScene" uid="uid://ueyeavrra30y" path="res://Scene/Pieces/Black/Flag.tscn" id="4_bwtr0"]
 
 [sub_resource type="Gradient" id="Gradient_ajfct"]
 offsets = PackedFloat32Array(0, 0.818182, 1)
@@ -156,6 +155,3 @@ tile_map_data = PackedByteArray("AAAIAAYAAAAAAAMAAAAHAAYAAAAAAAMAAAAGAAYAAAAAAAM
 tile_set = SubResource("TileSet_x8qny")
 
 [node name="Black Pieces" type="Node" parent="."]
-
-[node name="Flag" parent="." instance=ExtResource("4_bwtr0")]
-position = Vector2(544, 608)

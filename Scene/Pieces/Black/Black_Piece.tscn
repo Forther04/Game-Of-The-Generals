@@ -1,0 +1,231 @@
+[gd_scene load_steps=27 format=3 uid="uid://ueyeavrra30y"]
+
+[ext_resource type="Texture2D" uid="uid://egv5ef3svok8" path="res://Assest/GOG_Black_sprite_sheet.png" id="1_m3crr"]
+[ext_resource type="Script" path="res://Script/Black Pieces/Black.gd" id="2_s1w6r"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avp0b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2q5ty"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h62iu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g75kc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jqaem"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5o087"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kry1f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rfykf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_muhqx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bbbg4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lr5wk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5egrv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fdur7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fyvno"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_imn58"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5ds1c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5qw6e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t7wvy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kh2pl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xvgbw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ugcf5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3cv76"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c6p30"]
+radius = 0.999805
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0hg3"]
+size = Vector2(31, 31)
+
+[node name="Flag" type="Sprite2D" groups=["black_piece"]]
+position = Vector2(245, 143)
+scale = Vector2(2, 2)
+texture = ExtResource("1_m3crr")
+region_enabled = true
+region_rect = Rect2(170, 0, 32, 32)
+script = ExtResource("2_s1w6r")
+pieces = 5
+
+[node name="Main" type="Button" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -15.0
+offset_top = -15.0
+offset_right = -17.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_avp0b")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_2q5ty")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_h62iu")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_g75kc")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_jqaem")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5o087")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_kry1f")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_rfykf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_muhqx")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_bbbg4")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lr5wk")
+toggle_mode = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Choices" type="Node2D" parent="."]
+
+[node name="Top" type="Button" parent="Choices"]
+offset_left = -16.0
+offset_top = -48.0
+offset_right = 16.0
+offset_bottom = -16.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5egrv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_fdur7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fyvno")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_imn58")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5ds1c")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5qw6e")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t7wvy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_kh2pl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xvgbw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ugcf5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cv76")
+
+[node name="Top2" type="Sprite2D" parent="Choices/Top"]
+position = Vector2(15.75, 16)
+texture = ExtResource("1_m3crr")
+region_enabled = true
+region_rect = Rect2(0, 34, 32, 32)
+
+[node name="TOp" type="Area2D" parent="Choices/Top"]
+collision_layer = 2
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Choices/Top/TOp"]
+position = Vector2(16, 30.5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c6p30")
+
+[node name="Bottom" type="Button" parent="Choices"]
+offset_left = -16.25
+offset_top = 16.0
+offset_right = 15.75
+offset_bottom = 48.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5egrv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_fdur7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fyvno")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_imn58")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5ds1c")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5qw6e")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t7wvy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_kh2pl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xvgbw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ugcf5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cv76")
+
+[node name="Top" type="Sprite2D" parent="Choices/Bottom"]
+position = Vector2(16, 16)
+texture = ExtResource("1_m3crr")
+region_enabled = true
+region_rect = Rect2(0, 34, 32, 32)
+
+[node name="BOttom" type="Area2D" parent="Choices/Bottom"]
+position = Vector2(16.25, 1.5)
+collision_layer = 2
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Choices/Bottom/BOttom"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c6p30")
+
+[node name="Left" type="Button" parent="Choices"]
+offset_left = -48.25
+offset_top = -16.0
+offset_right = -16.25
+offset_bottom = 16.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5egrv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_fdur7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fyvno")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_imn58")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5ds1c")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5qw6e")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t7wvy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_kh2pl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xvgbw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ugcf5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cv76")
+
+[node name="Top" type="Sprite2D" parent="Choices/Left"]
+position = Vector2(16, 16)
+texture = ExtResource("1_m3crr")
+region_enabled = true
+region_rect = Rect2(0, 34, 32, 32)
+
+[node name="Left" type="Area2D" parent="Choices/Left"]
+position = Vector2(30.25, 16)
+rotation = 1.5708
+collision_layer = 2
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Choices/Left/Left"]
+position = Vector2(4.28408e-08, 8.9407e-08)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c6p30")
+
+[node name="Right" type="Button" parent="Choices"]
+offset_left = 15.75
+offset_top = -16.0
+offset_right = 47.75
+offset_bottom = 16.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5egrv")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_fdur7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_fyvno")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_imn58")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_5ds1c")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_5qw6e")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_t7wvy")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_kh2pl")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_xvgbw")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_ugcf5")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_3cv76")
+
+[node name="Top" type="Sprite2D" parent="Choices/Right"]
+position = Vector2(16, 16)
+texture = ExtResource("1_m3crr")
+region_enabled = true
+region_rect = Rect2(0, 34, 32, 32)
+
+[node name="Right" type="Area2D" parent="Choices/Right"]
+position = Vector2(1.75, 16)
+rotation = 1.5708
+collision_layer = 2
+collision_mask = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Choices/Right/Right"]
+position = Vector2(4.28408e-08, 8.9407e-08)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_c6p30")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_v0hg3")
+
+[connection signal="pressed" from="Main" to="." method="_on_main_pressed"]
+[connection signal="pressed" from="Choices/Top" to="." method="_on_top_pressed"]

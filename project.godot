@@ -43,6 +43,7 @@ folder_colors={
 [global_group]
 
 black_piece=""
+Black_Area=""
 
 [input_devices]
 
@@ -51,6 +52,7 @@ pointing/emulate_touch_from_mouse=true
 [layer_names]
 
 2d_physics/layer_2="Border"
+2d_physics/layer_3="Black Piece"
 
 [rendering]
 

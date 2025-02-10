@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ueyeavrra30y"]
+[gd_scene load_steps=28 format=3 uid="uid://ueyeavrra30y"]
 
 [ext_resource type="Texture2D" uid="uid://egv5ef3svok8" path="res://Assest/GOG_Black_sprite_sheet.png" id="1_m3crr"]
 [ext_resource type="Script" path="res://Script/Black Pieces/Black.gd" id="2_s1w6r"]
@@ -51,17 +51,19 @@
 radius = 0.999805
 height = 18.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0hg3"]
-size = Vector2(31, 31)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6bxvc"]
+radius = 0.999805
+height = 18.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p61ox"]
+size = Vector2(30, 30)
 
 [node name="Flag" type="Sprite2D" groups=["black_piece"]]
-position = Vector2(245, 143)
 scale = Vector2(2, 2)
 texture = ExtResource("1_m3crr")
 region_enabled = true
 region_rect = Rect2(170, 0, 32, 32)
 script = ExtResource("2_s1w6r")
-pieces = 5
 
 [node name="Main" type="Button" parent="."]
 anchors_preset = 15
@@ -219,13 +221,18 @@ collision_mask = 6
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Choices/Right/Right"]
 position = Vector2(4.28408e-08, 8.9407e-08)
 rotation = 1.5708
-shape = SubResource("CapsuleShape2D_c6p30")
+shape = SubResource("CapsuleShape2D_6bxvc")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 4
+[node name="Black_Main_Area" type="Area2D" parent="." groups=["Black_Area"]]
+collision_layer = 2
+collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_v0hg3")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Black_Main_Area"]
+shape = SubResource("RectangleShape2D_p61ox")
 
 [connection signal="pressed" from="Main" to="." method="_on_main_pressed"]
 [connection signal="pressed" from="Choices/Top" to="." method="_on_top_pressed"]
+[connection signal="pressed" from="Choices/Bottom" to="." method="_on_bottom_pressed"]
+[connection signal="pressed" from="Choices/Left" to="." method="_on_left_pressed"]
+[connection signal="pressed" from="Choices/Right" to="." method="_on_right_pressed"]
+[connection signal="area_entered" from="Choices/Right/Right" to="." method="_on_right_area_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cud612tnjxlyy"]
+[gd_scene load_steps=10 format=4 uid="uid://cud612tnjxlyy"]
 
 [ext_resource type="Script" path="res://Script/Main.gd" id="1_jjkbb"]
 [ext_resource type="Texture2D" uid="uid://djju0agl775jm" path="res://Assest/Board/pieces.png" id="1_jxr0l"]
@@ -14,14 +14,6 @@ colors = PackedColorArray(0.6, 1, 0.6, 1, 0.106034, 0.702704, 0.0117791, 1, 0.04
 gradient = SubResource("Gradient_ajfct")
 fill = 1
 fill_from = Vector2(0.5, 0.509174)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_ht2sr"]
-a = Vector2(1.52588e-05, -1.46565)
-b = Vector2(-0.488129, 255.023)
-
-[sub_resource type="SegmentShape2D" id="SegmentShape2D_e7704"]
-a = Vector2(1.52588e-05, -1.46565)
-b = Vector2(1.14441e-05, 285.071)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7wbm8"]
 texture = ExtResource("2_a0yi7")
@@ -103,39 +95,14 @@ position = Vector2(799, 384)
 scale = Vector2(2.04861, 2.04687)
 texture = ExtResource("3_yqk3d")
 
-[node name="Left" type="Area2D" parent="Border"]
+[node name="AreaBorder" type="Area2D" parent="Border"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="Left" type="CollisionShape2D" parent="Border/Left"]
+[node name="Collition" type="CollisionPolygon2D" parent="Border/AreaBorder"]
 position = Vector2(-142.536, -127.023)
-shape = SubResource("SegmentShape2D_ht2sr")
-
-[node name="Right" type="Area2D" parent="Border"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="Right" type="CollisionShape2D" parent="Border/Right"]
-position = Vector2(143.024, -127.023)
-shape = SubResource("SegmentShape2D_ht2sr")
-
-[node name="Top" type="Area2D" parent="Border"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="Top" type="CollisionShape2D" parent="Border/Top"]
-position = Vector2(143.024, -127.023)
-rotation = 1.5708
-shape = SubResource("SegmentShape2D_e7704")
-
-[node name="Bottom" type="Area2D" parent="Border"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="Bottom" type="CollisionShape2D" parent="Border/Bottom"]
-position = Vector2(143.024, 126.534)
-rotation = 1.5708
-shape = SubResource("SegmentShape2D_e7704")
+build_mode = 1
+polygon = PackedVector2Array(1.46474, 0.976894, 0.976608, 253.069, 285.072, 252.581, 285.072, 0.488342)
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
@@ -157,8 +124,9 @@ tile_set = SubResource("TileSet_x8qny")
 
 [node name="Black Pieces" type="Node" parent="."]
 
+[node name="Flag2" parent="." instance=ExtResource("4_bwtr0")]
+position = Vector2(608, 608)
+
 [node name="Flag" parent="." instance=ExtResource("4_bwtr0")]
 position = Vector2(544, 608)
-
-[node name="Flag2" parent="." instance=ExtResource("4_bwtr0")]
-position = Vector2(736, 605)
+pieces = 1

@@ -90,20 +90,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_jxr0l")
 expand_mode = 1
 
-[node name="Border" type="Sprite2D" parent="."]
-position = Vector2(799, 384)
-scale = Vector2(2.04861, 2.04687)
-texture = ExtResource("3_yqk3d")
-
-[node name="AreaBorder" type="Area2D" parent="Border"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="Collition" type="CollisionPolygon2D" parent="Border/AreaBorder"]
-position = Vector2(-142.536, -127.023)
-build_mode = 1
-polygon = PackedVector2Array(1.46474, 0.976894, 0.976608, 253.069, 285.072, 252.581, 285.072, 0.488342)
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchor_left = 0.32
@@ -122,11 +108,94 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAIAAYAAAAAAAMAAAAHAAYAAAAAAAMAAAAGAAYAAAAAAAMAAAAFAAYAAAAAAAMAAAAEAAYAAAAAAAMAAAADAAYAAAAAAAMAAAACAAYAAAAAAAMAAAABAAYAAAAAAAMAAAAAAAUAAAAAAAMAAAAAAAMAAAAAAAEAAAABAAMAAAAAAAEAAAACAAIAAAADAAIAAAADAAIAAAADAAIAAAAEAAEAAAADAAIAAAAFAAEAAAADAAIAAAAGAAEAAAADAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAGAAAAAAABAAIAAAAFAAAAAAABAAIAAAADAAEAAAADAAIAAAABAAIAAAADAAIAAAAAAAIAAAADAAIAAAACAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAAFAAIAAAADAAIAAAAGAAIAAAADAAIAAAAHAAIAAAADAAIAAAAIAAIAAAADAAIAAAAIAAEAAAADAAIAAAAHAAEAAAADAAIAAAAEAAAAAAABAAIAAAADAAAAAAABAAIAAAACAAAAAAABAAIAAAABAAAAAAABAAIAAAAAAAAAAAABAAIAAAAFAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAACAAQAAAAAAAIAAAABAAQAAAAAAAIAAAAAAAQAAAAAAAIAAAADAAQAAAAAAAIAAAACAAEAAAADAAIAAAABAAEAAAADAAIAAAAAAAEAAAADAAIAAAAEAAQAAAAAAAIAAAAFAAUAAAAAAAMAAAAGAAUAAAAAAAMAAAAHAAUAAAAAAAMAAAAIAAUAAAAAAAMAAAAAAAYAAAAAAAMAAAAEAAUAAAAAAAMAAAADAAUAAAAAAAMAAAACAAUAAAAAAAMAAAABAAUAAAAAAAMAAAAGAAcAAAACAAMAAAAHAAcAAAACAAMAAAAIAAcAAAACAAMAAAAAAAcAAAACAAMAAAABAAcAAAACAAMAAAACAAcAAAACAAMAAAADAAcAAAACAAMAAAAEAAcAAAACAAMAAAAFAAcAAAACAAMAAAAGAAQAAAAAAAIAAAAHAAQAAAAAAAIAAAAIAAQAAAAAAAIAAAAEAAIAAAADAAIAAAAFAAQAAAAAAAIAAAA=")
 tile_set = SubResource("TileSet_x8qny")
 
-[node name="Black Pieces" type="Node" parent="."]
+[node name="Pieces" type="Node2D" parent="."]
 
-[node name="Flag2" parent="." instance=ExtResource("4_bwtr0")]
-position = Vector2(608, 608)
+[node name="Border" type="Sprite2D" parent="Pieces"]
+position = Vector2(799, 384)
+scale = Vector2(2.04861, 2.04687)
+texture = ExtResource("3_yqk3d")
 
-[node name="Flag" parent="." instance=ExtResource("4_bwtr0")]
+[node name="AreaBorder" type="Area2D" parent="Pieces/Border"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Collition" type="CollisionPolygon2D" parent="Pieces/Border/AreaBorder"]
+position = Vector2(-142.536, -127.023)
+build_mode = 1
+polygon = PackedVector2Array(1.46474, 0.976894, 0.976608, 253.069, 285.072, 252.581, 285.072, 0.488342)
+
+[node name="Black" parent="Pieces" instance=ExtResource("4_bwtr0")]
 position = Vector2(544, 608)
+pieces = 0
+
+[node name="Black2" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(608, 608)
 pieces = 1
+
+[node name="Black3" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(672, 608)
+pieces = 3
+
+[node name="Black4" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(736, 608)
+pieces = 3
+
+[node name="Black5" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(800, 608)
+pieces = 4
+
+[node name="Black6" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(864, 608)
+pieces = 5
+
+[node name="Black7" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(928, 608)
+pieces = 6
+
+[node name="Black8" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(992, 608)
+pieces = 7
+
+[node name="Black9" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(1056, 608)
+pieces = 8
+
+[node name="Black10" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(544, 544)
+pieces = 9
+
+[node name="Black11" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(608, 544)
+pieces = 10
+
+[node name="Black12" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(672, 544)
+pieces = 11
+
+[node name="Black13" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(736, 544)
+pieces = 12
+
+[node name="Black14" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(800, 544)
+pieces = 13
+
+[node name="Black15" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(864, 544)
+pieces = 14
+
+[node name="Black16" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(928, 544)
+pieces = 14
+
+[node name="Black17" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(992, 544)
+pieces = 14
+
+[node name="Black18" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(1056, 544)
+pieces = 14
+
+[node name="Black19" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(1056, 480)
+pieces = 14

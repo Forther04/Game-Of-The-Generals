@@ -90,20 +90,6 @@ scale = Vector2(2, 2)
 texture = ExtResource("1_jxr0l")
 expand_mode = 1
 
-[node name="Border" type="Sprite2D" parent="."]
-position = Vector2(799, 384)
-scale = Vector2(2.04861, 2.04687)
-texture = ExtResource("3_yqk3d")
-
-[node name="AreaBorder" type="Area2D" parent="Border"]
-collision_layer = 2
-collision_mask = 2
-
-[node name="Collition" type="CollisionPolygon2D" parent="Border/AreaBorder"]
-position = Vector2(-142.536, -127.023)
-build_mode = 1
-polygon = PackedVector2Array(1.46474, 0.976894, 0.976608, 253.069, 285.072, 252.581, 285.072, 0.488342)
-
 [node name="Control" type="Control" parent="."]
 layout_mode = 1
 anchor_left = 0.32
@@ -116,17 +102,53 @@ offset_bottom = -22.7841
 grow_horizontal = 2
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Control"]
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAIAAYAAAAAAAMAAAAHAAYAAAAAAAMAAAAGAAYAAAAAAAMAAAAFAAYAAAAAAAMAAAAEAAYAAAAAAAMAAAADAAYAAAAAAAMAAAACAAYAAAAAAAMAAAABAAYAAAAAAAMAAAAAAAUAAAAAAAMAAAAAAAMAAAAAAAEAAAABAAMAAAAAAAEAAAACAAIAAAADAAIAAAADAAIAAAADAAIAAAAEAAEAAAADAAIAAAAFAAEAAAADAAIAAAAGAAEAAAADAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAGAAAAAAABAAIAAAAFAAAAAAABAAIAAAADAAEAAAADAAIAAAABAAIAAAADAAIAAAAAAAIAAAADAAIAAAACAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAAFAAIAAAADAAIAAAAGAAIAAAADAAIAAAAHAAIAAAADAAIAAAAIAAIAAAADAAIAAAAIAAEAAAADAAIAAAAHAAEAAAADAAIAAAAEAAAAAAABAAIAAAADAAAAAAABAAIAAAACAAAAAAABAAIAAAABAAAAAAABAAIAAAAAAAAAAAABAAIAAAAFAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAACAAQAAAAAAAIAAAABAAQAAAAAAAIAAAAAAAQAAAAAAAIAAAADAAQAAAAAAAIAAAACAAEAAAADAAIAAAABAAEAAAADAAIAAAAAAAEAAAADAAIAAAAEAAQAAAAAAAIAAAAFAAUAAAAAAAMAAAAGAAUAAAAAAAMAAAAHAAUAAAAAAAMAAAAIAAUAAAAAAAMAAAAAAAYAAAAAAAMAAAAEAAUAAAAAAAMAAAADAAUAAAAAAAMAAAACAAUAAAAAAAMAAAABAAUAAAAAAAMAAAAGAAcAAAACAAMAAAAHAAcAAAACAAMAAAAIAAcAAAACAAMAAAAAAAcAAAACAAMAAAABAAcAAAACAAMAAAACAAcAAAACAAMAAAADAAcAAAACAAMAAAAEAAcAAAACAAMAAAAFAAcAAAACAAMAAAAGAAQAAAAAAAIAAAAHAAQAAAAAAAIAAAAIAAQAAAAAAAIAAAAEAAIAAAADAAIAAAAFAAQAAAAAAAIAAAA=")
 tile_set = SubResource("TileSet_x8qny")
+metadata/_edit_lock_ = true
 
-[node name="Black Pieces" type="Node" parent="."]
+[node name="Pieces" type="Node2D" parent="."]
 
-[node name="Flag2" parent="." instance=ExtResource("4_bwtr0")]
+[node name="Border" type="Sprite2D" parent="Pieces"]
+position = Vector2(799, 384)
+scale = Vector2(2.04861, 2.04687)
+texture = ExtResource("3_yqk3d")
+
+[node name="AreaBorder" type="Area2D" parent="Pieces/Border"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="Collition" type="CollisionPolygon2D" parent="Pieces/Border/AreaBorder"]
+position = Vector2(-142.536, -127.023)
+build_mode = 1
+polygon = PackedVector2Array(1.46474, 0.976894, 0.976608, 253.069, 285.072, 252.581, 285.072, 0.488342)
+
+[node name="Black" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(608, 480)
+pieces = 1
+
+[node name="Black2" parent="Pieces" instance=ExtResource("4_bwtr0")]
 position = Vector2(608, 608)
 
-[node name="Flag" parent="." instance=ExtResource("4_bwtr0")]
-position = Vector2(544, 608)
+[node name="Black3" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(928, 480)
+pieces = 2
+
+[node name="Black4" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(672, 608)
+pieces = 3
+
+[node name="Black5" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(800, 544)
+pieces = 4
+
+[node name="Black6" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(992, 608)
+pieces = 5
+
+[node name="Black7" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(1056, 608)
 pieces = 1

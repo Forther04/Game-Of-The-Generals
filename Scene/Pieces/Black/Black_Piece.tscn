@@ -58,16 +58,12 @@ height = 18.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p61ox"]
 size = Vector2(30, 30)
 
-[node name="Black" type="Sprite2D" node_paths=PackedStringArray("right_area", "left_area", "top_area", "bottom_area") groups=["black_piece"]]
+[node name="Flag" type="Sprite2D" groups=["black_piece"]]
 scale = Vector2(2, 2)
 texture = ExtResource("1_m3crr")
 region_enabled = true
 region_rect = Rect2(170, 0, 32, 32)
 script = ExtResource("2_s1w6r")
-right_area = NodePath("Choices/Right/Right")
-left_area = NodePath("Choices/Left/Left")
-top_area = NodePath("Choices/Top/TOp")
-bottom_area = NodePath("Choices/Bottom/BOttom")
 
 [node name="Main" type="Button" parent="."]
 anchors_preset = 15
@@ -94,7 +90,6 @@ toggle_mode = true
 metadata/_edit_use_anchors_ = true
 
 [node name="Choices" type="Node2D" parent="."]
-visible = false
 
 [node name="Top" type="Button" parent="Choices"]
 offset_left = -16.0

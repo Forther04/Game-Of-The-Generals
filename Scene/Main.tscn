@@ -216,9 +216,11 @@ pieces = 14
 
 [node name="White" parent="Pieces" instance=ExtResource("6_dgshr")]
 position = Vector2(800, 352)
+pieces = 3
 
 [node name="White2" parent="Pieces" instance=ExtResource("6_dgshr")]
 position = Vector2(864, 352)
+pieces = 1
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

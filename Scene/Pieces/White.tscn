@@ -237,7 +237,7 @@ shape = SubResource("CapsuleShape2D_6bxvc")
 
 [node name="White_Main_Area" type="Area2D" parent="." groups=["White_area"]]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="White_Main_Area"]
 shape = SubResource("RectangleShape2D_p61ox")
@@ -248,3 +248,4 @@ shape = SubResource("RectangleShape2D_p61ox")
 [connection signal="pressed" from="Choices/Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="Choices/Right" to="." method="_on_right_pressed"]
 [connection signal="area_entered" from="Choices/Right/Right" to="." method="_on_right_area_entered"]
+[connection signal="area_entered" from="White_Main_Area" to="." method="_on_white_main_area_area_entered"]

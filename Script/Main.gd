@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 	if check_timer >= check_interval:
 		check_timer = 0
 		change_who_moves()
-		print("Change")
 
 func change_who_moves():
 	if Global.who_moves == false:

@@ -235,10 +235,11 @@ shape = SubResource("CapsuleShape2D_6bxvc")
 
 [node name="Black_Main_Area" type="Area2D" parent="." groups=["Black_Area"]]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Black_Main_Area"]
 shape = SubResource("RectangleShape2D_p61ox")
+debug_color = Color(0.932128, 2.64719e-05, 0.649991, 0.42)
 
 [connection signal="pressed" from="Main" to="." method="_on_main_pressed"]
 [connection signal="pressed" from="Choices/Top" to="." method="_on_top_pressed"]
@@ -246,3 +247,4 @@ shape = SubResource("RectangleShape2D_p61ox")
 [connection signal="pressed" from="Choices/Left" to="." method="_on_left_pressed"]
 [connection signal="pressed" from="Choices/Right" to="." method="_on_right_pressed"]
 [connection signal="area_entered" from="Choices/Right/Right" to="." method="_on_right_area_entered"]
+[connection signal="area_entered" from="Black_Main_Area" to="." method="_on_black_main_area_area_entered"]

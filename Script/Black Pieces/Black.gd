@@ -24,6 +24,8 @@ func _ready():
 		self.region_rect = Rect2(0,68,32,32)
 func show_pieces():
 	change_piece()
+	$".".self_modulate = Color(1,1,1,1)
+	
 func _process(delta: float) -> void:
 	check_timer += delta
 	if Global.piece != $".".name: #Check if a new piece is selected and hide the previous one
@@ -33,10 +35,6 @@ func _process(delta: float) -> void:
 		check_timer = 0
 		overlapping()
 		player_move()
-
-func reveal():
-	change_piece()
-	$".".self_modulate = Color(1,1,1,1)
 
 func change_piece(): #Changes the piece type
 	if pieces == 0:
@@ -254,4 +252,5 @@ func win_condition():
 	$"../../Win Screen/AnimationPlayer".play("Win")
 	Global.win = true
 	$Main.disabled = true
-	$"../../Label".text = "BlackWins"
+	$"../../Label".text = "Black Wins"
+	show_pieces()

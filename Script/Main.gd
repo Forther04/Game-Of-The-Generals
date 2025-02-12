@@ -18,11 +18,7 @@ func change_who_moves():
 			text.text = "Black's Turn"
 		elif Global.who_moves == true:
 			text.text = "White's Turn"
-
-
 func _on_back_pressed() -> void:
 	$"Win Screen".hide()
-
-
 func show_pieces():
 	emit_signal("win_screen")

@@ -243,3 +243,4 @@ func win_condition():
 	Global.win = true
 	$Main.queue_free()
 	$"../../Label".text = "White Wins"
+	show_pieces()

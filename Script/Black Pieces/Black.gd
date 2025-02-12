@@ -216,6 +216,7 @@ func _on_black_main_area_area_entered(area: Area2D) -> void:
 		if i.is_in_group("White_area"):  
 			if $Black_Main_Area.overlaps_area(i):
 				if Global.white_strength == 1:
+					$"../../Win Screen/Label".text = "Black Wins"
 					$"../../Win Screen".show()
 					$"../../Win Screen/AnimationPlayer".play("Win")
 					Global.win = true

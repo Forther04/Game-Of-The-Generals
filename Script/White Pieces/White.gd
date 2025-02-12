@@ -97,12 +97,13 @@ func change_piece(): #Changes the piece type
 		piece_strength = 2
 
 func player_move(): #Detect if it's white current move
-	if Global.who_moves == false:
-		$Main.hide()
-		$".".self_modulate = Color(0.3,0.3,0.3,255)
-	else:
-		$Main.show()
-		$".".self_modulate = Color(1,1,1,255)
+	if Global.win == false:
+		if Global.who_moves == false:
+			$Main.hide()
+			$".".self_modulate = Color(0.3,0.3,0.3,255)
+		else:
+			$Main.show()
+			$".".self_modulate = Color(1,1,1,255)
 
 #Check if the piece is selected
 func _on_main_pressed() -> void:
@@ -203,5 +204,12 @@ func _on_white_main_area_area_entered(area: Area2D) -> void:
 	for i in white:
 		if i.is_in_group("Black_Area"):  
 			if $White_Main_Area.overlaps_area(i):
+				if Global.black_strength == 1:
+					$"../../Win Screen/Label".text = "White Wins"
+					$"../../Win Screen".show()
+					$"../../Win Screen/AnimationPlayer".play("Win")
+					Global.win = true
+					$Main.queue_free()
+					$"../../Label".text = "White Wins"
 				if Global.black_strength >= Global.white_strength:
 					queue_free()

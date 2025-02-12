@@ -371,7 +371,7 @@ polygon = PackedVector2Array(1.46474, 0.976894, 0.976608, 253.069, 285.072, 252.
 
 [node name="Black" parent="Pieces" instance=ExtResource("4_bwtr0")]
 position = Vector2(736, 608)
-pieces = 1
+pieces = 0
 
 [node name="Black2" parent="Pieces" instance=ExtResource("4_bwtr0")]
 position = Vector2(800, 608)

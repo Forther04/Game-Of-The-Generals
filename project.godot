@@ -47,6 +47,8 @@ black_piece=""
 Black_Area=""
 White_area=""
 white_piece=""
+Black_Base=""
+White_Base=""
 
 [input_devices]
 

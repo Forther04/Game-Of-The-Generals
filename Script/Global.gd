@@ -2,7 +2,7 @@ extends Node
 
 var piece : String
 var who_moves : bool = true #False = black, True = white
-var player :bool = false #True = White, False = Black
+var player :bool = true #True = White, False = Black
 var win :bool = false
 
 var black_strength : int = 0

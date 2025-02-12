@@ -33,7 +33,6 @@ func _process(delta: float) -> void:
 		check_timer = 0
 		overlapping()
 		player_move()
-		print(Global.black_strength)
 
 func reveal():
 	change_piece()
@@ -176,7 +175,7 @@ func overlapping():
 		if area.is_in_group("Black_Area"):  
 			if bottom_area.overlaps_area(area):
 				$Choices/Bottom.hide()
-#______________________________________________________
+#FLAG__________________________________________________
 	if self.name.contains("Flag"):
 		for area in bottom:
 			if area.is_in_group("White_area"):  
@@ -194,6 +193,11 @@ func overlapping():
 			if area.is_in_group("White_area"):  
 				if right_area.overlaps_area(area):
 					$Choices/Right.hide()
+
+
+
+
+
 
 
 #Move the piece __________________________
@@ -225,19 +229,29 @@ func _on_right_pressed() -> void:
 
 #CAPTURE___________________________________
 func _on_black_main_area_area_entered(area: Area2D) -> void:
+	var main = $Black_Main_Area.get_overlapping_areas()
 	capture()
 	Global.black_strength = piece_strengt
 	var black = $Black_Main_Area.get_overlapping_areas()
+	if self.name.contains("Flag"):
+		for i in main:
+			if i.is_in_group("White_Base"):  
+				if $Black_Main_Area.overlaps_area(area):
+					win_condition()
+					print("win")
 	for i in black:
 		if i.is_in_group("White_area"):  
 			if $Black_Main_Area.overlaps_area(i):
 				if Global.white_strength == 1:
 					print("captured whites flag")
-					$"../../Win Screen/Label".text = "Black Wins"
-					$"../../Win Screen".show()
-					$"../../Win Screen/AnimationPlayer".play("Win")
-					Global.win = true
-					$Main.queue_free()
-					$"../../Label".text = "BlackWins"
+					win_condition()
 				if Global.white_strength >= Global.black_strength:
 					queue_free()
+
+func win_condition():
+	$"../../Win Screen/Label".text = "Black Wins"
+	$"../../Win Screen".show()
+	$"../../Win Screen/AnimationPlayer".play("Win")
+	Global.win = true
+	$Main.disabled = true
+	$"../../Label".text = "BlackWins"

@@ -217,19 +217,29 @@ func _on_right_pressed() -> void:
 
 #CAPTURE__________________________________
 func _on_white_main_area_area_entered(area: Area2D) -> void:
+	var main = $White_Main_Area.get_overlapping_areas()
 	capture()
 	Global.white_strength = piece_strength
 	var white = $White_Main_Area.get_overlapping_areas()
+	if self.name.contains("Flag"):
+		for i in main:
+			if i.is_in_group("Black_Base"):  
+				if $White_Main_Area.overlaps_area(area):
+					win_condition()
+					print("win")
 	for i in white:
 		if i.is_in_group("Black_Area"):  
 			if $White_Main_Area.overlaps_area(i):
 				if Global.black_strength == 1:
 					print("captured whites flag")
-					$"../../Win Screen/Label".text = "White Wins"
-					$"../../Win Screen".show()
-					$"../../Win Screen/AnimationPlayer".play("Win")
-					Global.win = true
-					$Main.queue_free()
-					$"../../Label".text = "White Wins"
+					win_condition()
 				if Global.black_strength >= Global.white_strength:
 					queue_free()
+
+func win_condition():
+	$"../../Win Screen/Label".text = "White Wins"
+	$"../../Win Screen".show()
+	$"../../Win Screen/AnimationPlayer".play("Win")
+	Global.win = true
+	$Main.queue_free()
+	$"../../Label".text = "White Wins"

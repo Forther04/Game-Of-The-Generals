@@ -21,6 +21,10 @@ config/show_image=false
 
 Global="*res://Script/Global.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/viewport_width=1600
@@ -37,7 +41,8 @@ window/canvas_textures/default_texture_filter=1
 folder_colors={
 "res://Assest/": "red",
 "res://Scene/": "teal",
-"res://Script/": "yellow"
+"res://Script/": "yellow",
+"res://Sound/": "blue"
 }
 
 [global_group]
@@ -60,3 +65,4 @@ pointing/emulate_touch_from_mouse=true
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

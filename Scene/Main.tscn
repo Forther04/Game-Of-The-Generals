@@ -84,10 +84,10 @@ anchor_left = 0.04
 anchor_top = 0.167
 anchor_right = 0.12
 anchor_bottom = 0.833
-offset_left = 32.0
-offset_top = 124.744
-offset_right = -32.0
-offset_bottom = -130.744
+offset_left = 96.0
+offset_top = 127.744
+offset_right = 32.0
+offset_bottom = -127.744
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -131,105 +131,38 @@ build_mode = 1
 polygon = PackedVector2Array(1.46474, 0.976894, 0.976608, 253.069, 285.072, 252.581, 285.072, 0.488342)
 
 [node name="Black" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(800, 608)
-pieces = 15
-
-[node name="Black2" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(608, 480)
-pieces = 1
-
-[node name="Black3" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(672, 480)
-pieces = 3
-
-[node name="Black4" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(736, 480)
-pieces = 3
-
-[node name="Black5" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(800, 480)
-pieces = 4
-
-[node name="Black6" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(864, 480)
-pieces = 5
-
-[node name="Black7" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(928, 480)
-pieces = 6
-
-[node name="Black8" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(992, 480)
-pieces = 7
-
-[node name="Black9" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(1056, 480)
-pieces = 8
-
-[node name="Black10" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(544, 544)
-pieces = 9
-
-[node name="Black11" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(608, 544)
-pieces = 10
-
-[node name="Black12" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(672, 544)
-pieces = 11
-
-[node name="Black13" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(736, 544)
-pieces = 12
-
-[node name="Black14" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(800, 544)
-pieces = 13
-
-[node name="Black15" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(864, 544)
-pieces = 14
-
-[node name="Black16" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(928, 544)
-pieces = 14
-
-[node name="Black17" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(992, 544)
-pieces = 14
-
-[node name="Black18" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(1056, 544)
-pieces = 14
-
-[node name="Black19" parent="Pieces" instance=ExtResource("4_bwtr0")]
 position = Vector2(736, 608)
 pieces = 14
 
-[node name="Black20" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(544, 480)
+[node name="Black2" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(800, 608)
 pieces = 13
 
-[node name="Black21" parent="Pieces" instance=ExtResource("4_bwtr0")]
+[node name="Black3" parent="Pieces" instance=ExtResource("4_bwtr0")]
 position = Vector2(864, 608)
-pieces = 14
+pieces = 1
 
 [node name="White" parent="Pieces" instance=ExtResource("6_dgshr")]
-position = Vector2(800, 288)
-pieces = 3
+position = Vector2(736, 224)
+pieces = 13
 
 [node name="White2" parent="Pieces" instance=ExtResource("6_dgshr")]
-position = Vector2(864, 288)
+position = Vector2(800, 224)
 pieces = 1
+
+[node name="White3" parent="Pieces" instance=ExtResource("6_dgshr")]
+position = Vector2(864, 224)
+pieces = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -168.0
-offset_top = 64.0
-offset_right = -64.0
-offset_bottom = 87.0
+offset_left = -928.0
+offset_top = 32.0
+offset_right = -617.0
+offset_bottom = 101.0
 grow_horizontal = 0
-text = "Moves"
+theme_override_font_sizes/font_size = 50
+text = "White Moves"

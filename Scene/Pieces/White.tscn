@@ -1,8 +1,10 @@
-[gd_scene load_steps=29 format=3 uid="uid://dnu0xelqcijii"]
+[gd_scene load_steps=31 format=3 uid="uid://dnu0xelqcijii"]
 
 [ext_resource type="Texture2D" uid="uid://dxh4yltn8y8gg" path="res://Assest/GOG_White_sprite_sheet.png" id="1_k6rfx"]
 [ext_resource type="Texture2D" uid="uid://egv5ef3svok8" path="res://Assest/GOG_Black_sprite_sheet.png" id="1_qvyag"]
 [ext_resource type="Script" path="res://Script/White Pieces/White.gd" id="2_m08ib"]
+[ext_resource type="AudioStream" uid="uid://bykfs5gdjg4ot" path="res://Sound/capture.mp3" id="4_sjlog"]
+[ext_resource type="AudioStream" uid="uid://bkg32kbwf5ojx" path="res://Sound/move.mp3" id="5_sog42"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avp0b"]
 
@@ -241,6 +243,14 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="White_Main_Area"]
 shape = SubResource("RectangleShape2D_p61ox")
+
+[node name="capture" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_sjlog")
+volume_db = 10.0
+
+[node name="move" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_sog42")
+volume_db = 10.0
 
 [connection signal="pressed" from="Main" to="." method="_on_main_pressed"]
 [connection signal="pressed" from="Choices/Top" to="." method="_on_top_pressed"]

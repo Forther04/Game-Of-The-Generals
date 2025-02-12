@@ -116,6 +116,14 @@ func _on_main_pressed() -> void:
 			off = false
 
 
+func move():
+	$move.pitch_scale = randf_range(0.8, 1.2)
+	$move.play()
+
+func capture():
+	$capture.pitch_scale = randf_range(0.8, 1.2)
+	$capture.play()
+
 func overlapping():
 	var right = right_area.get_overlapping_areas()
 	var left = left_area.get_overlapping_areas()
@@ -165,25 +173,30 @@ func _on_top_pressed() -> void:
 	off = false
 	$Choices.hide()
 	Global.who_moves = true
+	move()
 func _on_bottom_pressed() -> void:
 	$".".position += Vector2(0, 64)
 	off = false
 	$Choices.hide()
 	Global.who_moves = true
+	move()
 func _on_left_pressed() -> void:
 	$".".position += Vector2(-64, 0)
 	off = false
 	$Choices.hide()
 	Global.who_moves = true
+	move()
 func _on_right_pressed() -> void:
 	$".".position += Vector2(64, 0)
 	off = false
 	$Choices.hide()
 	Global.who_moves = true
+	move()
 #__________________________________________
 
 
 func _on_black_main_area_area_entered(area: Area2D) -> void:
+	capture()
 	Global.black_strength = piece_strengt
 	var black = $Black_Main_Area.get_overlapping_areas()
 	for i in black:

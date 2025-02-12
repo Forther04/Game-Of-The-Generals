@@ -7,6 +7,9 @@ var check_timer = 0.0
 
 
 func _process(delta: float) -> void:
+	if Global.white_player == true:
+		$".".rotation_degrees = 180
+		$"Piece Holder".rotation_degrees = 180 
 	check_timer += delta
 	if check_timer >= check_interval:
 		check_timer = 0

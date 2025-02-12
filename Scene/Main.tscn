@@ -62,6 +62,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(800, 384)
 script = ExtResource("1_jjkbb")
 text = NodePath("Label")
 
@@ -83,12 +84,14 @@ anchor_left = 0.04
 anchor_top = 0.167
 anchor_right = 0.12
 anchor_bottom = 0.833
-offset_top = -0.256012
-offset_right = -64.0
-offset_bottom = -255.744
+offset_left = 32.0
+offset_top = 124.744
+offset_right = -32.0
+offset_bottom = -130.744
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+pivot_offset = Vector2(32, 129)
 texture = ExtResource("1_jxr0l")
 expand_mode = 1
 
@@ -103,6 +106,7 @@ offset_top = 7.424
 offset_bottom = -22.7841
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset = Vector2(287, 256)
 metadata/_edit_use_anchors_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Control"]
@@ -128,7 +132,7 @@ polygon = PackedVector2Array(1.46474, 0.976894, 0.976608, 253.069, 285.072, 252.
 
 [node name="Black" parent="Pieces" instance=ExtResource("4_bwtr0")]
 position = Vector2(800, 608)
-pieces = 0
+pieces = 15
 
 [node name="Black2" parent="Pieces" instance=ExtResource("4_bwtr0")]
 position = Vector2(608, 480)
@@ -211,15 +215,10 @@ position = Vector2(864, 608)
 pieces = 14
 
 [node name="White" parent="Pieces" instance=ExtResource("6_dgshr")]
-position = Vector2(736, 288)
+position = Vector2(800, 352)
 
 [node name="White2" parent="Pieces" instance=ExtResource("6_dgshr")]
-position = Vector2(800, 288)
-pieces = 1
-
-[node name="White3" parent="Pieces" instance=ExtResource("6_dgshr")]
-position = Vector2(864, 288)
-pieces = 7
+position = Vector2(864, 352)
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1

@@ -60,6 +60,7 @@ height = 18.0
 size = Vector2(30, 30)
 
 [node name="White" type="Sprite2D" node_paths=PackedStringArray("right_area", "left_area", "top_area", "bottom_area") groups=["white_piece"]]
+rotation = 3.14159
 scale = Vector2(2, 2)
 texture = ExtResource("1_k6rfx")
 region_enabled = true
@@ -96,6 +97,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Choices" type="Node2D" parent="."]
 visible = false
+rotation = 3.14159
 
 [node name="Top" type="Button" parent="Choices"]
 z_index = 1

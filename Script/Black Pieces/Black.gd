@@ -23,6 +23,13 @@ func _process(delta: float) -> void:
 	if check_timer >= check_interval:
 		check_timer = 0
 		overlapping()
+		player_move()
+
+func player_move(): #Detect if it's black current move
+	if Global.who_moves == true:
+		$Main.hide()
+	else:
+		$Main.show()
 
 
 func change_piece(): #Changes the piece type
@@ -74,6 +81,7 @@ func change_piece(): #Changes the piece type
 	if pieces == 15:
 		self.region_rect = Rect2(0,68,32,32)
 		self.name = "?"
+		$".".rotation_degrees = 180
 
 
 #Check if the piece is selected

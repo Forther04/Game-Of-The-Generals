@@ -98,7 +98,7 @@ metadata/_edit_use_anchors_ = true
 visible = false
 
 [node name="Top" type="Button" parent="Choices"]
-z_index = 1
+z_index = 5
 offset_left = -16.0
 offset_top = -48.0
 offset_right = 16.0
@@ -131,7 +131,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_c6p30")
 
 [node name="Bottom" type="Button" parent="Choices"]
-z_index = 1
+z_index = 5
 offset_left = -16.25
 offset_top = 16.0
 offset_right = 15.75
@@ -164,7 +164,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_c6p30")
 
 [node name="Left" type="Button" parent="Choices"]
-z_index = 1
+z_index = 5
 offset_left = -48.25
 offset_top = -16.0
 offset_right = -16.25
@@ -199,7 +199,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_c6p30")
 
 [node name="Right" type="Button" parent="Choices"]
-z_index = 1
+z_index = 5
 offset_left = 15.75
 offset_top = -16.0
 offset_right = 47.75

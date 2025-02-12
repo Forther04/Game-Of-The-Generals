@@ -23,7 +23,14 @@ func _process(delta: float) -> void:
 	if check_timer >= check_interval:
 		check_timer = 0
 		overlapping()
+		player_move()
 
+
+func player_move(): #Detect if it's white current move
+	if Global.who_moves == false:
+		$Main.hide()
+	else:
+		$Main.show()
 
 func change_piece(): #Changes the piece type
 	if pieces == 0:
@@ -112,19 +119,19 @@ func overlapping():
 		$Choices/Right.show()
 		
 	for area in right:
-		if area.is_in_group("White_Area"):  
+		if area.is_in_group("White_area"):  
 			if right_area.overlaps_area(area):
 				$Choices/Right.hide()
 	for area in left:
-		if area.is_in_group("White_Area"):  
+		if area.is_in_group("White_area"):  
 			if left_area.overlaps_area(area):
 				$Choices/Left.hide()
 	for area in top:
-		if area.is_in_group("White_Area"):  
+		if area.is_in_group("White_area"):  
 			if top_area.overlaps_area(area):
 				$Choices/Top.hide()
 	for area in bottom:
-		if area.is_in_group("White_Area"):  
+		if area.is_in_group("White_area"):  
 			if bottom_area.overlaps_area(area):
 				$Choices/Bottom.hide()
 

@@ -17,7 +17,6 @@ enum piece {Flag,General_5,General_4,General_3,General_2,General_1, Colonel, LT_
 
 func _ready():
 	change_piece()
-
 func _process(delta: float) -> void:
 	check_timer += delta
 	if Global.piece != $".".name: #Check if a new piece is selected and hide the previous one
@@ -28,13 +27,6 @@ func _process(delta: float) -> void:
 		overlapping()
 		player_move()
 
-
-
-func player_move(): #Detect if it's white current move
-	if Global.who_moves == false:
-		$Main.hide()
-	else:
-		$Main.show()
 
 func change_piece(): #Changes the piece type
 	if pieces == 0:
@@ -102,6 +94,13 @@ func change_piece(): #Changes the piece type
 		self.name = "?"
 		$".".rotation_degrees = 180
 
+func player_move(): #Detect if it's white current move
+	if Global.who_moves == false:
+		$Main.hide()
+		$".".self_modulate = Color(0.3,0.3,0.3,255)
+	else:
+		$Main.show()
+		$".".self_modulate = Color(1,1,1,255)
 
 #Check if the piece is selected
 func _on_main_pressed() -> void:
@@ -117,13 +116,14 @@ func _on_main_pressed() -> void:
 			$Choices.hide()
 			off = false
 
+#SOUND EFFECT_____________________________
 func move():
 	$move.pitch_scale = randf_range(0.8, 1.2)
 	$move.play()
-
 func capture():
 	$capture.pitch_scale = randf_range(0.8, 1.2)
 	$capture.play()
+#_________________________________________
 
 func overlapping():
 	var right = right_area.get_overlapping_areas()
@@ -166,10 +166,7 @@ func overlapping():
 			if bottom_area.overlaps_area(area):
 				$Choices/Bottom.hide()
 
-
-
-
-
+#Move the piece __________________________
 func _on_top_pressed() -> void:
 	$".".position += Vector2(0, -64)
 	off = false
@@ -194,8 +191,9 @@ func _on_right_pressed() -> void:
 	$Choices.hide()
 	Global.who_moves = false
 	move()
+#_________________________________________
 
-
+#CAPTURE__________________________________
 func _on_white_main_area_area_entered(area: Area2D) -> void:
 	capture()
 	Global.white_strength = piece_strength
@@ -205,4 +203,3 @@ func _on_white_main_area_area_entered(area: Area2D) -> void:
 			if $White_Main_Area.overlaps_area(i):
 				if Global.black_strength >= Global.white_strength:
 					queue_free()
-					print("Capture")

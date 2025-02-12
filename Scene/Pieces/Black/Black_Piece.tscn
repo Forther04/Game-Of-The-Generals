@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://egv5ef3svok8" path="res://Assest/GOG_Black_sprite_sheet.png" id="1_m3crr"]
 [ext_resource type="Script" path="res://Script/Black Pieces/Black.gd" id="2_s1w6r"]
-[ext_resource type="AudioStream" uid="uid://bykfs5gdjg4ot" path="res://Sound/capture.mp3" id="3_acuaw"]
-[ext_resource type="AudioStream" uid="uid://bkg32kbwf5ojx" path="res://Sound/move.mp3" id="4_3526c"]
+[ext_resource type="AudioStream" uid="uid://dbgf5rwklxknd" path="res://Sound/capture.wav" id="3_b0dnw"]
+[ext_resource type="AudioStream" uid="uid://xjo226yi1548" path="res://Sound/move.wav" id="4_6r5t4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avp0b"]
 
@@ -236,6 +236,7 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6bxvc")
 
 [node name="Black_Main_Area" type="Area2D" parent="." groups=["Black_Area"]]
+visible = false
 collision_layer = 10
 collision_mask = 8
 
@@ -244,11 +245,11 @@ shape = SubResource("RectangleShape2D_p61ox")
 debug_color = Color(0.932128, 2.64719e-05, 0.649991, 0.42)
 
 [node name="capture" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_acuaw")
+stream = ExtResource("3_b0dnw")
 volume_db = 10.0
 
 [node name="move" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_3526c")
+stream = ExtResource("4_6r5t4")
 volume_db = 10.0
 
 [connection signal="pressed" from="Main" to="." method="_on_main_pressed"]

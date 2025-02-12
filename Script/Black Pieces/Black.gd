@@ -15,9 +15,9 @@ var piece_strengt : int
 
 enum piece {Flag,General_5,General_4,General_3,General_2,General_1, Colonel, LT_Colonel, Major, Captain, Lieut_1, Lieut_2, Sergeant, Spy, Private, Questionmark}
 
-
-func _process(delta: float) -> void:
+func _ready():
 	change_piece()
+func _process(delta: float) -> void:
 	check_timer += delta
 	if Global.piece != $".".name: #Check if a new piece is selected and hide the previous one
 		$Choices.hide()
@@ -26,14 +26,7 @@ func _process(delta: float) -> void:
 		check_timer = 0
 		overlapping()
 		player_move()
-		print(Global.white_strength, Global.black_strength)
 
-
-func player_move(): #Detect if it's black current move
-	if Global.who_moves == true:
-		$Main.hide()
-	else:
-		$Main.show()
 
 func change_piece(): #Changes the piece type
 	if pieces == 0:
@@ -102,6 +95,14 @@ func change_piece(): #Changes the piece type
 		$".".rotation_degrees = 180
 
 
+func player_move(): #Detect if it's black current move
+	if Global.who_moves == true:
+		$Main.hide()
+		$".".self_modulate = Color(0.3,0.3,0.3,255)
+	else:
+		$Main.show()
+		$".".self_modulate = Color(1,1,1,1)
+
 #Check if the piece is selected
 func _on_main_pressed() -> void:
 	if starting == false:
@@ -115,14 +116,15 @@ func _on_main_pressed() -> void:
 			$Choices.hide()
 			off = false
 
-
+#SOUND EFFECT_____________________________
 func move():
 	$move.pitch_scale = randf_range(0.8, 1.2)
 	$move.play()
-
 func capture():
 	$capture.pitch_scale = randf_range(0.8, 1.2)
 	$capture.play()
+#_________________________________________
+
 
 func overlapping():
 	var right = right_area.get_overlapping_areas()
@@ -194,7 +196,7 @@ func _on_right_pressed() -> void:
 	move()
 #__________________________________________
 
-
+#CAPTURE___________________________________
 func _on_black_main_area_area_entered(area: Area2D) -> void:
 	capture()
 	Global.black_strength = piece_strengt
@@ -204,4 +206,3 @@ func _on_black_main_area_area_entered(area: Area2D) -> void:
 			if $Black_Main_Area.overlaps_area(i):
 				if Global.black_strength <= Global.white_strength:
 					queue_free()
-					print("Capture")

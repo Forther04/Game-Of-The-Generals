@@ -3,8 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dxh4yltn8y8gg" path="res://Assest/GOG_White_sprite_sheet.png" id="1_k6rfx"]
 [ext_resource type="Texture2D" uid="uid://egv5ef3svok8" path="res://Assest/GOG_Black_sprite_sheet.png" id="1_qvyag"]
 [ext_resource type="Script" path="res://Script/White Pieces/White.gd" id="2_m08ib"]
-[ext_resource type="AudioStream" uid="uid://bykfs5gdjg4ot" path="res://Sound/capture.mp3" id="4_sjlog"]
-[ext_resource type="AudioStream" uid="uid://bkg32kbwf5ojx" path="res://Sound/move.mp3" id="5_sog42"]
+[ext_resource type="AudioStream" uid="uid://dbgf5rwklxknd" path="res://Sound/capture.wav" id="4_dj76q"]
+[ext_resource type="AudioStream" uid="uid://xjo226yi1548" path="res://Sound/move.wav" id="5_w2ggh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avp0b"]
 
@@ -245,11 +245,11 @@ collision_mask = 8
 shape = SubResource("RectangleShape2D_p61ox")
 
 [node name="capture" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_sjlog")
+stream = ExtResource("4_dj76q")
 volume_db = 10.0
 
 [node name="move" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_sog42")
+stream = ExtResource("5_w2ggh")
 volume_db = 10.0
 
 [connection signal="pressed" from="Main" to="." method="_on_main_pressed"]

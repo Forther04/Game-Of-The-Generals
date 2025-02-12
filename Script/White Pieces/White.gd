@@ -24,12 +24,12 @@ func _process(delta: float) -> void:
 	if check_timer >= check_interval:
 		check_timer = 0
 		overlapping()
-		player_move()
+		player()
 
 
 
-func player_move(): #Detect if it's white current move
-	if Global.who_moves == false:
+func player(): #Detect if it's white current move
+	if Global.who_moves == false: #false = black, true = white
 		$Main.hide()
 	else:
 		$Main.show()
@@ -154,9 +154,6 @@ func overlapping():
 				$Choices/Bottom.hide()
 
 
-
-
-
 func _on_top_pressed() -> void:
 	$".".position += Vector2(0, -64)
 	off = false
@@ -179,14 +176,15 @@ func _on_right_pressed() -> void:
 	Global.who_moves = false
 
 
-func _on_white_main_area_area_entered(area: Area2D) -> void:
+func _on_white_main_area_area_entered(area: Area2D) -> void:  #Capture System
+	Global.white_strength = piece_strength
 	var white = $White_Main_Area.get_overlapping_areas()
 	for i in white:
 		if i.is_in_group("Black_Area"):  
 			if $White_Main_Area.overlaps_area(i):
-				Global.white_strength = piece_strength
 				print("White overlaped with:", i)
 				if Global.black_strength < Global.white_strength:
 					pass
 				elif Global.black_strength >= Global.white_strength:
 					queue_free()
+				

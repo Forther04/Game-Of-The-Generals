@@ -13,10 +13,21 @@ var black_piece_area
 var check_timer = 0.0
 var piece_strengt : int
 
+
 enum piece {Flag,General_5,General_4,General_3,General_2,General_1, Colonel, LT_Colonel, Major, Captain, Lieut_1, Lieut_2, Sergeant, Spy, Private, Questionmark}
 
+##_______________________________________________________________________________
 func _ready():
+	$"../..".win_screen.connect(show_pieces)
 	change_piece()
+	if Global.player == false:
+		self.region_rect = Rect2(0,68,32,32)
+		self.name = "?"
+
+func show_pieces():
+	change_piece()
+
+
 func _process(delta: float) -> void:
 	check_timer += delta
 	if Global.piece != $".".name: #Check if a new piece is selected and hide the previous one
@@ -27,6 +38,8 @@ func _process(delta: float) -> void:
 		overlapping()
 		player_move()
 
+func reveal():
+	change_piece()
 
 func change_piece(): #Changes the piece type
 	if pieces == 0:
@@ -89,25 +102,23 @@ func change_piece(): #Changes the piece type
 		self.region_rect = Rect2(102,102,32,32)
 		self.name = "Private"
 		piece_strengt = 2
-	if pieces == 15:
-		self.region_rect = Rect2(0,68,32,32)
-		self.name = "?"
-		$".".rotation_degrees = 180
+
 
 
 func player_move(): #Detect if it's black current move
-	if Global.who_moves == true:
-		$Main.hide()
-		$".".self_modulate = Color(0.3,0.3,0.3,255)
-	else:
-		$Main.show()
-		$".".self_modulate = Color(1,1,1,1)
+	if Global.win == false:
+		if Global.who_moves == true:
+			$Main.hide()
+			$".".self_modulate = Color(0.3,0.3,0.3,255)
+		else:
+			$Main.show()
+			$".".self_modulate = Color(1,1,1,1)
 
 #Check if the piece is selected
 func _on_main_pressed() -> void:
 	if starting == false:
 		Global.black_strength = piece_strengt
-	if Global.who_moves == false:
+	if Global.who_moves == false and Global.win == false:
 		Global.piece = $".".name
 		if off == false:
 			$Choices.show()
@@ -131,8 +142,8 @@ func overlapping():
 	var left = left_area.get_overlapping_areas()
 	var top = top_area.get_overlapping_areas()
 	var bottom = bottom_area.get_overlapping_areas()
-
 	var black = $Black
+	
 	if $Choices/Top/TOp.overlaps_area($"../Border/AreaBorder"):
 		$Choices/Top.hide()
 	else:
@@ -204,5 +215,11 @@ func _on_black_main_area_area_entered(area: Area2D) -> void:
 	for i in black:
 		if i.is_in_group("White_area"):  
 			if $Black_Main_Area.overlaps_area(i):
+				if Global.white_strength == 1:
+					$"../../Win Screen".show()
+					$"../../Win Screen/AnimationPlayer".play("Win")
+					Global.win = true
+					$Main.queue_free()
+					$"../../Label".text = "Black Wins"
 				if Global.black_strength <= Global.white_strength:
 					queue_free()

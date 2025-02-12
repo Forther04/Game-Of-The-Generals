@@ -16,7 +16,11 @@ var piece_strength : int
 enum piece {Flag,General_5,General_4,General_3,General_2,General_1, Colonel, LT_Colonel, Major, Captain, Lieut_1, Lieut_2, Sergeant, Spy, Private, Questionmark}
 
 func _ready():
+	$"../..".win_screen.connect(show_pieces)
 	change_piece()
+	if Global.player == true:
+		self.region_rect = Rect2(0,68,32,32)
+		self.name = "?"
 func _process(delta: float) -> void:
 	check_timer += delta
 	if Global.piece != $".".name: #Check if a new piece is selected and hide the previous one
@@ -27,6 +31,8 @@ func _process(delta: float) -> void:
 		overlapping()
 		player_move()
 
+func show_pieces():
+	change_piece()
 
 func change_piece(): #Changes the piece type
 	if pieces == 0:
@@ -89,10 +95,6 @@ func change_piece(): #Changes the piece type
 		self.region_rect = Rect2(102,102,32,32)
 		self.name = "Private"
 		piece_strength = 2
-	if pieces == 15:
-		self.region_rect = Rect2(0,68,32,32)
-		self.name = "?"
-		$".".rotation_degrees = 180
 
 func player_move(): #Detect if it's white current move
 	if Global.who_moves == false:
@@ -107,7 +109,7 @@ func _on_main_pressed() -> void:
 	if starting == false:
 		Global.white_strength = piece_strength
 		starting
-	if Global.who_moves == true:
+	if Global.who_moves == true and Global.win == false:
 		Global.piece = $".".name
 		if off == false:
 			$Choices.show()

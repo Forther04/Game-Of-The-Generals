@@ -4,19 +4,25 @@ extends Control
 @export var check_interval = 0.5
 var check_timer = 0.0
 
-
+signal win_screen
 
 func _process(delta: float) -> void:
-	if Global.white_player == true:
-		$".".rotation_degrees = 180
-		$"Piece Holder".rotation_degrees = 180 
 	check_timer += delta
 	if check_timer >= check_interval:
 		check_timer = 0
 		change_who_moves()
 
 func change_who_moves():
-	if Global.who_moves == false:
-		text.text = "Black's Turn"
-	elif Global.who_moves == true:
-		text.text = "White's Turn"
+	if Global.win == false:
+		if Global.who_moves == false:
+			text.text = "Black's Turn"
+		elif Global.who_moves == true:
+			text.text = "White's Turn"
+
+
+func _on_back_pressed() -> void:
+	$"Win Screen".hide()
+
+
+func show_pieces():
+	emit_signal("win_screen")

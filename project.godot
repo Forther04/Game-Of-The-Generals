@@ -21,10 +21,6 @@ config/show_image=false
 
 Global="*res://Script/Global.gd"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/viewport_width=1600

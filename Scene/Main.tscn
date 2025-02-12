@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cud612tnjxlyy"]
+[gd_scene load_steps=28 format=4 uid="uid://cud612tnjxlyy"]
 
 [ext_resource type="Script" path="res://Script/Main.gd" id="1_jjkbb"]
 [ext_resource type="Texture2D" uid="uid://djju0agl775jm" path="res://Assest/Board/pieces.png" id="1_jxr0l"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://xy6l648vcojv" path="res://Assest/Board/Border.png" id="3_yqk3d"]
 [ext_resource type="PackedScene" uid="uid://ueyeavrra30y" path="res://Scene/Pieces/Black/Black_Piece.tscn" id="4_bwtr0"]
 [ext_resource type="PackedScene" uid="uid://dnu0xelqcijii" path="res://Scene/Pieces/White.tscn" id="6_dgshr"]
+[ext_resource type="AudioStream" uid="uid://csmn25ic7edmt" path="res://Sound/Win.wav" id="7_ccx8c"]
+[ext_resource type="AudioStream" uid="uid://dpag7uatlmltx" path="res://Sound/Lose.wav" id="8_x1u7u"]
 
 [sub_resource type="Gradient" id="Gradient_ajfct"]
 offsets = PackedFloat32Array(0, 0.818182, 1)
@@ -55,6 +57,225 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_7wbm8")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsix6"]
+bg_color = Color(0.0284741, 0.328034, 0.00278133, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.000693897, 0.000693898, 0.000693897, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00fnp"]
+bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_fctfj"]
+resource_name = "Win"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.366667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_font_sizes/font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.366667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1, 110, 100]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.03333, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Back:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.06667, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Win:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.566667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("..")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_pieces"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_t382l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_font_sizes/font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [110]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Back:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Win:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xo664"]
+_data = {
+"RESET": SubResource("Animation_t382l"),
+"Win": SubResource("Animation_fctfj")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kvcu5"]
+bg_color = Color(0.198969, 0.413738, 0.174218, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.93845, 0.93845, 0.93845, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yulii"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_glrdn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hs28m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tespo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bnhsl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t6yxr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_42sqs"]
+bg_color = Color(0.128776, 0.28322, 0.110962, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.93845, 0.93845, 0.93845, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m1ble"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adssd"]
+bg_color = Color(0.128776, 0.28322, 0.110962, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.93845, 0.93845, 0.93845, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 20
+
 [node name="Main" type="Control" node_paths=PackedStringArray("text")]
 layout_mode = 3
 anchors_preset = 15
@@ -77,7 +298,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_u1thy")
 expand_mode = 1
 
-[node name="Piece Holder" type="TextureRect" parent="."]
+[node name="Black" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.04
@@ -87,6 +308,24 @@ anchor_bottom = 0.833
 offset_left = 96.0
 offset_top = 127.744
 offset_right = 32.0
+offset_bottom = -127.744
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(32, 129)
+texture = ExtResource("1_jxr0l")
+expand_mode = 1
+
+[node name="White" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.167
+anchor_right = 0.12
+anchor_bottom = 0.833
+offset_left = 1280.0
+offset_top = 127.744
+offset_right = 1216.0
 offset_bottom = -127.744
 grow_horizontal = 2
 grow_vertical = 2
@@ -132,7 +371,7 @@ polygon = PackedVector2Array(1.46474, 0.976894, 0.976608, 253.069, 285.072, 252.
 
 [node name="Black" parent="Pieces" instance=ExtResource("4_bwtr0")]
 position = Vector2(736, 608)
-pieces = 14
+pieces = 1
 
 [node name="Black2" parent="Pieces" instance=ExtResource("4_bwtr0")]
 position = Vector2(800, 608)
@@ -148,7 +387,6 @@ pieces = 13
 
 [node name="White2" parent="Pieces" instance=ExtResource("6_dgshr")]
 position = Vector2(800, 224)
-pieces = 1
 
 [node name="White3" parent="Pieces" instance=ExtResource("6_dgshr")]
 position = Vector2(864, 224)
@@ -156,13 +394,110 @@ pieces = 2
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -928.0
-offset_top = 32.0
-offset_right = -617.0
-offset_bottom = 101.0
-grow_horizontal = 0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 27.0
+offset_right = 194.0
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
 theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_hsix6")
 text = "White Moves"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Win Screen" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_00fnp")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Win Screen"]
+libraries = {
+"": SubResource("AnimationLibrary_xo664")
+}
+
+[node name="Label" type="Label" parent="Win Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 110
+text = "WHITE WINS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="Win Screen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1290.0
+offset_top = 27.0
+offset_right = -138.0
+offset_bottom = -662.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yulii")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_glrdn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hs28m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_tespo")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_bnhsl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t6yxr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_42sqs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m1ble")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvcu5")
+text = "X"
+
+[node name="Menu" type="Button" parent="Win Screen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 104.0
+offset_top = 29.0
+offset_right = -1324.0
+offset_bottom = -660.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yulii")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_glrdn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_bnhsl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t6yxr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_adssd")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m1ble")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvcu5")
+text = "MENU"
+
+[node name="Win" type="AudioStreamPlayer2D" parent="Win Screen"]
+stream = ExtResource("7_ccx8c")
+pitch_scale = 0.8
+
+[node name="Lose" type="AudioStreamPlayer2D" parent="Win Screen"]
+stream = ExtResource("8_x1u7u")
+
+[connection signal="pressed" from="Win Screen/Back" to="." method="_on_back_pressed"]

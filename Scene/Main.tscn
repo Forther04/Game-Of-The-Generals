@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://cud612tnjxlyy"]
+[gd_scene load_steps=11 format=4 uid="uid://cud612tnjxlyy"]
 
 [ext_resource type="Script" path="res://Script/Main.gd" id="1_jjkbb"]
 [ext_resource type="Texture2D" uid="uid://djju0agl775jm" path="res://Assest/Board/pieces.png" id="1_jxr0l"]
 [ext_resource type="Texture2D" uid="uid://bs2abvst5wubh" path="res://Assest/Board/Board_Sheet2.png" id="2_a0yi7"]
 [ext_resource type="Texture2D" uid="uid://xy6l648vcojv" path="res://Assest/Board/Border.png" id="3_yqk3d"]
 [ext_resource type="PackedScene" uid="uid://ueyeavrra30y" path="res://Scene/Pieces/Black/Black_Piece.tscn" id="4_bwtr0"]
+[ext_resource type="PackedScene" uid="uid://dnu0xelqcijii" path="res://Scene/Pieces/White.tscn" id="6_dgshr"]
 
 [sub_resource type="Gradient" id="Gradient_ajfct"]
 offsets = PackedFloat32Array(0, 0.818182, 1)
@@ -54,7 +55,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_7wbm8")
 
-[node name="Main" type="Control"]
+[node name="Main" type="Control" node_paths=PackedStringArray("text")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,6 +63,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jjkbb")
+text = NodePath("Label")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -125,39 +127,39 @@ build_mode = 1
 polygon = PackedVector2Array(1.46474, 0.976894, 0.976608, 253.069, 285.072, 252.581, 285.072, 0.488342)
 
 [node name="Black" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(544, 608)
+position = Vector2(800, 608)
 pieces = 0
 
 [node name="Black2" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(608, 608)
+position = Vector2(608, 480)
 pieces = 1
 
 [node name="Black3" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(672, 608)
+position = Vector2(672, 480)
 pieces = 3
 
 [node name="Black4" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(736, 608)
+position = Vector2(736, 480)
 pieces = 3
 
 [node name="Black5" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(800, 608)
+position = Vector2(800, 480)
 pieces = 4
 
 [node name="Black6" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(864, 608)
+position = Vector2(864, 480)
 pieces = 5
 
 [node name="Black7" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(928, 608)
+position = Vector2(928, 480)
 pieces = 6
 
 [node name="Black8" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(992, 608)
+position = Vector2(992, 480)
 pieces = 7
 
 [node name="Black9" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(1056, 608)
+position = Vector2(1056, 480)
 pieces = 8
 
 [node name="Black10" parent="Pieces" instance=ExtResource("4_bwtr0")]
@@ -197,5 +199,36 @@ position = Vector2(1056, 544)
 pieces = 14
 
 [node name="Black19" parent="Pieces" instance=ExtResource("4_bwtr0")]
-position = Vector2(1056, 480)
+position = Vector2(736, 608)
 pieces = 14
+
+[node name="Black20" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(544, 480)
+pieces = 13
+
+[node name="Black21" parent="Pieces" instance=ExtResource("4_bwtr0")]
+position = Vector2(864, 608)
+pieces = 14
+
+[node name="White" parent="Pieces" instance=ExtResource("6_dgshr")]
+position = Vector2(736, 288)
+
+[node name="White2" parent="Pieces" instance=ExtResource("6_dgshr")]
+position = Vector2(800, 288)
+pieces = 1
+
+[node name="White3" parent="Pieces" instance=ExtResource("6_dgshr")]
+position = Vector2(864, 288)
+pieces = 7
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_top = 64.0
+offset_right = -64.0
+offset_bottom = 87.0
+grow_horizontal = 0
+text = "Moves"

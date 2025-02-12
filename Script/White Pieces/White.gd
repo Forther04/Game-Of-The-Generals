@@ -78,7 +78,7 @@ func change_piece(): #Changes the piece type
 
 #Check if the piece is selected
 func _on_main_pressed() -> void:
-	if Global.who_moves == false:
+	if Global.who_moves == true:
 		Global.piece = $".".name
 		if off == false:
 			$Choices.show()
@@ -112,19 +112,19 @@ func overlapping():
 		$Choices/Right.show()
 		
 	for area in right:
-		if area.is_in_group("Black_Area"):  
+		if area.is_in_group("White_Area"):  
 			if right_area.overlaps_area(area):
 				$Choices/Right.hide()
 	for area in left:
-		if area.is_in_group("Black_Area"):  
+		if area.is_in_group("White_Area"):  
 			if left_area.overlaps_area(area):
 				$Choices/Left.hide()
 	for area in top:
-		if area.is_in_group("Black_Area"):  
+		if area.is_in_group("White_Area"):  
 			if top_area.overlaps_area(area):
 				$Choices/Top.hide()
 	for area in bottom:
-		if area.is_in_group("Black_Area"):  
+		if area.is_in_group("White_Area"):  
 			if bottom_area.overlaps_area(area):
 				$Choices/Bottom.hide()
 
@@ -136,19 +136,19 @@ func _on_top_pressed() -> void:
 	$".".position += Vector2(0, -64)
 	off = false
 	$Choices.hide()
-	Global.who_moves = true
+	Global.who_moves = false
 func _on_bottom_pressed() -> void:
 	$".".position += Vector2(0, 64)
 	off = false
 	$Choices.hide()
-	Global.who_moves = true
+	Global.who_moves = false
 func _on_left_pressed() -> void:
 	$".".position += Vector2(-64, 0)
 	off = false
 	$Choices.hide()
-	Global.who_moves = true
+	Global.who_moves = false
 func _on_right_pressed() -> void:
 	$".".position += Vector2(64, 0)
 	off = false
 	$Choices.hide()
-	Global.who_moves = true
+	Global.who_moves = false

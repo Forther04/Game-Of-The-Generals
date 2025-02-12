@@ -1,7 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://ueyeavrra30y"]
+[gd_scene load_steps=29 format=3 uid="uid://dnu0xelqcijii"]
 
-[ext_resource type="Texture2D" uid="uid://egv5ef3svok8" path="res://Assest/GOG_Black_sprite_sheet.png" id="1_m3crr"]
-[ext_resource type="Script" path="res://Script/Black Pieces/Black.gd" id="2_s1w6r"]
+[ext_resource type="Texture2D" uid="uid://dxh4yltn8y8gg" path="res://Assest/GOG_White_sprite_sheet.png" id="1_k6rfx"]
+[ext_resource type="Texture2D" uid="uid://egv5ef3svok8" path="res://Assest/GOG_Black_sprite_sheet.png" id="1_qvyag"]
+[ext_resource type="Script" path="res://Script/White Pieces/White.gd" id="2_m08ib"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_avp0b"]
 
@@ -58,13 +59,12 @@ height = 18.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p61ox"]
 size = Vector2(30, 30)
 
-[node name="Black" type="Sprite2D" node_paths=PackedStringArray("right_area", "left_area", "top_area", "bottom_area") groups=["black_piece"]]
+[node name="White" type="Sprite2D" node_paths=PackedStringArray("right_area", "left_area", "top_area", "bottom_area") groups=["white_piece"]]
 scale = Vector2(2, 2)
-texture = ExtResource("1_m3crr")
+texture = ExtResource("1_k6rfx")
 region_enabled = true
-region_rect = Rect2(0, 68, 32, 32)
-script = ExtResource("2_s1w6r")
-pieces = 2
+region_rect = Rect2(0, 0, 32, 32)
+script = ExtResource("2_m08ib")
 right_area = NodePath("Choices/Right/Right")
 left_area = NodePath("Choices/Left/Left")
 top_area = NodePath("Choices/Top/TOp")
@@ -117,7 +117,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_3cv76")
 
 [node name="Top2" type="Sprite2D" parent="Choices/Top"]
 position = Vector2(15.75, 16)
-texture = ExtResource("1_m3crr")
+texture = ExtResource("1_qvyag")
 region_enabled = true
 region_rect = Rect2(0, 34, 32, 32)
 
@@ -150,7 +150,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_3cv76")
 
 [node name="Top" type="Sprite2D" parent="Choices/Bottom"]
 position = Vector2(16, 16)
-texture = ExtResource("1_m3crr")
+texture = ExtResource("1_qvyag")
 region_enabled = true
 region_rect = Rect2(0, 34, 32, 32)
 
@@ -183,7 +183,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_3cv76")
 
 [node name="Top" type="Sprite2D" parent="Choices/Left"]
 position = Vector2(16, 16)
-texture = ExtResource("1_m3crr")
+texture = ExtResource("1_qvyag")
 region_enabled = true
 region_rect = Rect2(0, 34, 32, 32)
 
@@ -218,7 +218,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_3cv76")
 
 [node name="Top" type="Sprite2D" parent="Choices/Right"]
 position = Vector2(16, 16)
-texture = ExtResource("1_m3crr")
+texture = ExtResource("1_qvyag")
 region_enabled = true
 region_rect = Rect2(0, 34, 32, 32)
 
@@ -233,11 +233,11 @@ position = Vector2(4.28408e-08, 8.9407e-08)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6bxvc")
 
-[node name="Black_Main_Area" type="Area2D" parent="." groups=["Black_Area"]]
+[node name="White_Main_Area" type="Area2D" parent="." groups=["White_area"]]
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Black_Main_Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="White_Main_Area"]
 shape = SubResource("RectangleShape2D_p61ox")
 
 [connection signal="pressed" from="Main" to="." method="_on_main_pressed"]

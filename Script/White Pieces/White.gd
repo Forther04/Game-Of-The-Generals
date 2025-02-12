@@ -18,9 +18,10 @@ enum piece {Flag,General_5,General_4,General_3,General_2,General_1, Colonel, LT_
 func _ready():
 	$"../..".win_screen.connect(show_pieces)
 	change_piece()
+	print(self.name)
 	if Global.player == true:
 		self.region_rect = Rect2(0,68,32,32)
-		self.name = "?"
+	Global.white_strength = 1
 func _process(delta: float) -> void:
 	check_timer += delta
 	if Global.piece != $".".name: #Check if a new piece is selected and hide the previous one
@@ -108,20 +109,19 @@ func player_move(): #Detect if it's white current move
 
 #Check if the piece is selected
 func _on_main_pressed() -> void:
-	if starting == false:
-		Global.white_strength = piece_strength
-		starting
 	if Global.who_moves == true and Global.win == false:
 		Global.piece = $".".name
-		if off == false:
-			$Choices.show()
-			off = true
-		elif off == true:
-			$Choices.hide()
-			off = false
+		starting = true
+	if off == false:
+		$Choices.show()
+		off = true
+	elif off == true:
+		$Choices.hide()
+		off = false
 
 #SOUND EFFECT_____________________________
 func move():
+	
 	$move.pitch_scale = randf_range(0.8, 1.2)
 	$move.play()
 func capture():
@@ -169,6 +169,24 @@ func overlapping():
 		if area.is_in_group("White_area"):  
 			if bottom_area.overlaps_area(area):
 				$Choices/Bottom.hide()
+#___________________________________________
+	if self.name.contains("Flag"):
+		for area in bottom:
+			if area.is_in_group("Black_Area"):  
+				if bottom_area.overlaps_area(area):
+					$Choices/Bottom.hide()
+		for area in top:
+			if area.is_in_group("Black_Area"):  
+				if top_area.overlaps_area(area):
+					$Choices/Top.hide()
+		for area in left:
+			if area.is_in_group("Black_Area"):  
+				if left_area.overlaps_area(area):
+					$Choices/Left.hide()
+		for area in right:
+			if area.is_in_group("Black_Area"):  
+				if right_area.overlaps_area(area):
+					$Choices/Right.hide()
 
 #Move the piece __________________________
 func _on_top_pressed() -> void:
@@ -206,6 +224,7 @@ func _on_white_main_area_area_entered(area: Area2D) -> void:
 		if i.is_in_group("Black_Area"):  
 			if $White_Main_Area.overlaps_area(i):
 				if Global.black_strength == 1:
+					print("captured whites flag")
 					$"../../Win Screen/Label".text = "White Wins"
 					$"../../Win Screen".show()
 					$"../../Win Screen/AnimationPlayer".play("Win")

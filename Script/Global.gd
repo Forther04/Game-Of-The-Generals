@@ -5,8 +5,8 @@ var who_moves : bool = true #False = black, True = white
 var player :bool = false #True = White, False = Black
 var win :bool = false
 
-var black_strength : int
-var white_strength : int
+var black_strength : int = 0
+var white_strength : int = 0
 
 const SPY : int = 15
 const GENERAL_5 : int = 14

@@ -22,13 +22,8 @@ func _ready():
 	change_piece()
 	if Global.player == false:
 		self.region_rect = Rect2(0,68,32,32)
-		self.name = "?"
-
 func show_pieces():
 	change_piece()
-	
-
-
 func _process(delta: float) -> void:
 	check_timer += delta
 	if Global.piece != $".".name: #Check if a new piece is selected and hide the previous one
@@ -38,6 +33,7 @@ func _process(delta: float) -> void:
 		check_timer = 0
 		overlapping()
 		player_move()
+		print(Global.black_strength)
 
 func reveal():
 	change_piece()
@@ -120,6 +116,7 @@ func player_move(): #Detect if it's black current move
 func _on_main_pressed() -> void:
 	if starting == false:
 		Global.black_strength = piece_strengt
+		starting = true
 	if Global.who_moves == false and Global.win == false:
 		Global.piece = $".".name
 		if off == false:
@@ -179,7 +176,24 @@ func overlapping():
 		if area.is_in_group("Black_Area"):  
 			if bottom_area.overlaps_area(area):
 				$Choices/Bottom.hide()
-
+#______________________________________________________
+	if self.name.contains("Flag"):
+		for area in bottom:
+			if area.is_in_group("White_area"):  
+				if bottom_area.overlaps_area(area):
+					$Choices/Bottom.hide()
+		for area in top:
+			if area.is_in_group("White_area"):  
+				if top_area.overlaps_area(area):
+					$Choices/Top.hide()
+		for area in left:
+			if area.is_in_group("White_area"):  
+				if left_area.overlaps_area(area):
+					$Choices/Left.hide()
+		for area in right:
+			if area.is_in_group("White_area"):  
+				if right_area.overlaps_area(area):
+					$Choices/Right.hide()
 
 
 #Move the piece __________________________
@@ -218,11 +232,12 @@ func _on_black_main_area_area_entered(area: Area2D) -> void:
 		if i.is_in_group("White_area"):  
 			if $Black_Main_Area.overlaps_area(i):
 				if Global.white_strength == 1:
+					print("captured whites flag")
 					$"../../Win Screen/Label".text = "Black Wins"
 					$"../../Win Screen".show()
 					$"../../Win Screen/AnimationPlayer".play("Win")
 					Global.win = true
 					$Main.queue_free()
-					$"../../Label".text = "Black Wins"
-				if Global.black_strength <= Global.white_strength:
+					$"../../Label".text = "BlackWins"
+				if Global.white_strength >= Global.black_strength:
 					queue_free()

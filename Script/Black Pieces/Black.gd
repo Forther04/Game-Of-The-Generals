@@ -7,6 +7,7 @@ extends Sprite2D
 @export var top_area : Area2D
 @export var bottom_area : Area2D
 @export var check_interval = 0.2
+var starting :bool = false
 var off : bool = false
 var black_piece_area
 var check_timer = 0.0
@@ -25,6 +26,7 @@ func _process(delta: float) -> void:
 		check_timer = 0
 		overlapping()
 		player_move()
+		print(Global.white_strength, Global.black_strength)
 
 
 func player_move(): #Detect if it's black current move
@@ -102,6 +104,8 @@ func change_piece(): #Changes the piece type
 
 #Check if the piece is selected
 func _on_main_pressed() -> void:
+	if starting == false:
+		Global.black_strength = piece_strengt
 	if Global.who_moves == false:
 		Global.piece = $".".name
 		if off == false:
@@ -180,13 +184,11 @@ func _on_right_pressed() -> void:
 
 
 func _on_black_main_area_area_entered(area: Area2D) -> void:
+	Global.black_strength = piece_strengt
 	var black = $Black_Main_Area.get_overlapping_areas()
 	for i in black:
 		if i.is_in_group("White_area"):  
 			if $Black_Main_Area.overlaps_area(i):
-				Global.black_strength = piece_strengt
-				print("Black overlaped with:", i)
-				if Global.black_strength > Global.white_strength:
-					pass
-				elif Global.black_strength <= Global.white_strength:
+				if Global.black_strength <= Global.white_strength:
 					queue_free()
+					print("Capture")

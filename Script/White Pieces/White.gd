@@ -7,6 +7,7 @@ extends Sprite2D
 @export var top_area : Area2D
 @export var bottom_area : Area2D
 @export var check_interval = 0.2
+var starting :bool = false
 var off : bool = false
 var black_piece_area
 var check_timer = 0.0
@@ -14,9 +15,10 @@ var piece_strength : int
 
 enum piece {Flag,General_5,General_4,General_3,General_2,General_1, Colonel, LT_Colonel, Major, Captain, Lieut_1, Lieut_2, Sergeant, Spy, Private, Questionmark}
 
+func _ready():
+	change_piece()
 
 func _process(delta: float) -> void:
-	change_piece()
 	check_timer += delta
 	if Global.piece != $".".name: #Check if a new piece is selected and hide the previous one
 		$Choices.hide()
@@ -103,6 +105,9 @@ func change_piece(): #Changes the piece type
 
 #Check if the piece is selected
 func _on_main_pressed() -> void:
+	if starting == false:
+		Global.white_strength = piece_strength
+		starting
 	if Global.who_moves == true:
 		Global.piece = $".".name
 		if off == false:
@@ -180,13 +185,11 @@ func _on_right_pressed() -> void:
 
 
 func _on_white_main_area_area_entered(area: Area2D) -> void:
+	Global.white_strength = piece_strength
 	var white = $White_Main_Area.get_overlapping_areas()
 	for i in white:
 		if i.is_in_group("Black_Area"):  
 			if $White_Main_Area.overlaps_area(i):
-				Global.white_strength = piece_strength
-				print("White overlaped with:", i)
-				if Global.black_strength < Global.white_strength:
-					pass
-				elif Global.black_strength >= Global.white_strength:
+				if Global.black_strength >= Global.white_strength:
 					queue_free()
+					print("Capture")

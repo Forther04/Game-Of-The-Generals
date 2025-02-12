@@ -26,6 +26,7 @@ func _ready():
 
 func show_pieces():
 	change_piece()
+	
 
 
 func _process(delta: float) -> void:
@@ -40,6 +41,7 @@ func _process(delta: float) -> void:
 
 func reveal():
 	change_piece()
+	$".".self_modulate = Color(1,1,1,1)
 
 func change_piece(): #Changes the piece type
 	if pieces == 0:

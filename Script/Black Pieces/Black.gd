@@ -13,7 +13,6 @@ var black_piece_area
 var check_timer = 0.0
 var piece_strengt : int
 
-
 enum piece {Flag,General_5,General_4,General_3,General_2,General_1, Colonel, LT_Colonel, Major, Captain, Lieut_1, Lieut_2, Sergeant, Spy, Private, Questionmark}
 
 ##_______________________________________________________________________________
@@ -97,8 +96,6 @@ func change_piece(): #Changes the piece type
 		self.region_rect = Rect2(102,102,32,32)
 		self.name = "Private"
 		piece_strengt = 2
-
-
 
 func player_move(): #Detect if it's black current move
 	if Global.win == false:
@@ -247,10 +244,10 @@ func _on_black_main_area_area_entered(area: Area2D) -> void:
 					queue_free()
 
 func win_condition():
-	$"../../Win Screen/Label".text = "Black Wins"
-	$"../../Win Screen".show()
-	$"../../Win Screen/AnimationPlayer".play("Win")
+	$"../../Ui/Win Screen/Label".text = "Black Wins"
+	$"../../Ui/Win Screen".show()
+	$"../../Ui/Win Screen/AnimationPlayer".play("Win")
 	Global.win = true
 	$Main.disabled = true
-	$"../../Label".text = "Black Wins"
+	$"../../Ui/Label".text = "Black Wins"
 	show_pieces()

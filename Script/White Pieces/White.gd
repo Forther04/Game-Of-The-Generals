@@ -237,10 +237,10 @@ func _on_white_main_area_area_entered(area: Area2D) -> void:
 					queue_free()
 
 func win_condition():
-	$"../../Win Screen/Label".text = "White Wins"
-	$"../../Win Screen".show()
-	$"../../Win Screen/AnimationPlayer".play("Win")
+	$"../../Ui/Win Screen/Label".text = "White Wins"
+	$"../../Ui/Win Screen".show()
+	$"../../Ui/Win Screen/AnimationPlayer".play("Win")
 	Global.win = true
 	$Main.queue_free()
-	$"../../Label".text = "White Wins"
+	$"../../Ui/Label".text = "White Wins"
 	show_pieces()

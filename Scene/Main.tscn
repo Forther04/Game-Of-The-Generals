@@ -18,6 +18,19 @@ gradient = SubResource("Gradient_ajfct")
 fill = 1
 fill_from = Vector2(0.5, 0.509174)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsix6"]
+bg_color = Color(0.0284741, 0.328034, 0.00278133, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.000693897, 0.000693898, 0.000693897, 1)
+corner_radius_top_left = 30
+corner_radius_top_right = 30
+corner_radius_bottom_right = 30
+corner_radius_bottom_left = 30
+corner_detail = 20
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7wbm8"]
 texture = ExtResource("2_a0yi7")
 texture_region_size = Vector2i(32, 32)
@@ -57,21 +70,71 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_7wbm8")
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hsix6"]
-bg_color = Color(0.0284741, 0.328034, 0.00278133, 1)
-border_width_left = 5
-border_width_top = 5
-border_width_right = 5
-border_width_bottom = 5
-border_color = Color(0.000693897, 0.000693898, 0.000693897, 1)
-corner_radius_top_left = 30
-corner_radius_top_right = 30
-corner_radius_bottom_right = 30
-corner_radius_bottom_left = 30
-corner_detail = 20
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_00fnp"]
 bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="Animation" id="Animation_t382l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:theme_override_styles/panel:bg_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:theme_override_font_sizes/font_size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [110]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Menu:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Back:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Win:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_fctfj"]
 resource_name = "Win"
@@ -151,69 +214,6 @@ tracks/5/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_t382l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:theme_override_styles/panel:bg_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0, 0, 0)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:theme_override_font_sizes/font_size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [110]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Menu:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Back:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Win:playing")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xo664"]
 _data = {
 "RESET": SubResource("Animation_t382l"),
@@ -285,9 +285,18 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(800, 384)
 script = ExtResource("1_jjkbb")
-text = NodePath("Label")
+text = NodePath("Ui/Label")
 
-[node name="Background" type="TextureRect" parent="."]
+[node name="Ui" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Background" type="TextureRect" parent="Ui"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.994
@@ -298,7 +307,7 @@ grow_vertical = 2
 texture = SubResource("GradientTexture2D_u1thy")
 expand_mode = 1
 
-[node name="Black" type="TextureRect" parent="."]
+[node name="Black" type="TextureRect" parent="Ui"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.04
@@ -316,7 +325,7 @@ pivot_offset = Vector2(32, 129)
 texture = ExtResource("1_jxr0l")
 expand_mode = 1
 
-[node name="White" type="TextureRect" parent="."]
+[node name="White" type="TextureRect" parent="Ui"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.04
@@ -334,7 +343,25 @@ pivot_offset = Vector2(32, 129)
 texture = ExtResource("1_jxr0l")
 expand_mode = 1
 
-[node name="Control" type="Control" parent="."]
+[node name="Label" type="Label" parent="Ui"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -194.0
+offset_top = 27.0
+offset_right = 194.0
+offset_bottom = 106.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_hsix6")
+text = "White Moves"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Board" type="Control" parent="Ui"]
 layout_mode = 1
 anchor_left = 0.32
 anchor_top = 0.157
@@ -348,10 +375,121 @@ grow_vertical = 2
 pivot_offset = Vector2(287, 256)
 metadata/_edit_use_anchors_ = true
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Control"]
+[node name="TileMapLayer" type="TileMapLayer" parent="Ui/Board"]
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAIAAYAAAAAAAMAAAAHAAYAAAAAAAMAAAAGAAYAAAAAAAMAAAAFAAYAAAAAAAMAAAAEAAYAAAAAAAMAAAADAAYAAAAAAAMAAAACAAYAAAAAAAMAAAABAAYAAAAAAAMAAAAAAAUAAAAAAAMAAAAAAAMAAAAAAAEAAAABAAMAAAAAAAEAAAACAAIAAAADAAIAAAADAAIAAAADAAIAAAAEAAEAAAADAAIAAAAFAAEAAAADAAIAAAAGAAEAAAADAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAGAAAAAAABAAIAAAAFAAAAAAABAAIAAAADAAEAAAADAAIAAAABAAIAAAADAAIAAAAAAAIAAAADAAIAAAACAAMAAAAAAAEAAAADAAMAAAAAAAEAAAAEAAMAAAAAAAEAAAAFAAIAAAADAAIAAAAGAAIAAAADAAIAAAAHAAIAAAADAAIAAAAIAAIAAAADAAIAAAAIAAEAAAADAAIAAAAHAAEAAAADAAIAAAAEAAAAAAABAAIAAAADAAAAAAABAAIAAAACAAAAAAABAAIAAAABAAAAAAABAAIAAAAAAAAAAAABAAIAAAAFAAMAAAAAAAEAAAAGAAMAAAAAAAEAAAAHAAMAAAAAAAEAAAAIAAMAAAAAAAEAAAACAAQAAAAAAAIAAAABAAQAAAAAAAIAAAAAAAQAAAAAAAIAAAADAAQAAAAAAAIAAAACAAEAAAADAAIAAAABAAEAAAADAAIAAAAAAAEAAAADAAIAAAAEAAQAAAAAAAIAAAAFAAUAAAAAAAMAAAAGAAUAAAAAAAMAAAAHAAUAAAAAAAMAAAAIAAUAAAAAAAMAAAAAAAYAAAAAAAMAAAAEAAUAAAAAAAMAAAADAAUAAAAAAAMAAAACAAUAAAAAAAMAAAABAAUAAAAAAAMAAAAGAAcAAAACAAMAAAAHAAcAAAACAAMAAAAIAAcAAAACAAMAAAAAAAcAAAACAAMAAAABAAcAAAACAAMAAAACAAcAAAACAAMAAAADAAcAAAACAAMAAAAEAAcAAAACAAMAAAAFAAcAAAACAAMAAAAGAAQAAAAAAAIAAAAHAAQAAAAAAAIAAAAIAAQAAAAAAAIAAAAEAAIAAAADAAIAAAAFAAQAAAAAAAIAAAA=")
 tile_set = SubResource("TileSet_x8qny")
+
+[node name="Win Screen" type="Panel" parent="Ui"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_00fnp")
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ui/Win Screen"]
+libraries = {
+"": SubResource("AnimationLibrary_xo664")
+}
+
+[node name="Label" type="Label" parent="Ui/Win Screen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 30
+theme_override_font_sizes/font_size = 110
+text = "WHITE WINS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Back" type="Button" parent="Ui/Win Screen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1290.0
+offset_top = 27.0
+offset_right = -138.0
+offset_bottom = -662.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yulii")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_glrdn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hs28m")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_tespo")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_bnhsl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t6yxr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_42sqs")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m1ble")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvcu5")
+text = "X"
+
+[node name="Menu" type="Button" parent="Ui/Win Screen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 104.0
+offset_top = 29.0
+offset_right = -1324.0
+offset_bottom = -660.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yulii")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_glrdn")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_bnhsl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_kvcu5")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t6yxr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_adssd")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m1ble")
+theme_override_styles/normal = SubResource("StyleBoxFlat_kvcu5")
+text = "MENU"
+
+[node name="Win" type="AudioStreamPlayer2D" parent="Ui/Win Screen"]
+stream = ExtResource("7_ccx8c")
+pitch_scale = 0.8
+
+[node name="Lose" type="AudioStreamPlayer2D" parent="Ui/Win Screen"]
+stream = ExtResource("8_x1u7u")
+
+[node name="BlackBase" type="Node2D" parent="."]
+visible = false
+
+[node name="Black_base" type="Area2D" parent="BlackBase" groups=["Black_Base"]]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BlackBase/Black_base"]
+polygon = PackedVector2Array(516, 600, 1083, 596, 1084, 624, 517, 626)
+
+[node name="WhiteBase" type="Node2D" parent="."]
+visible = false
+
+[node name="White_base" type="Area2D" parent="WhiteBase" groups=["White_Base"]]
+position = Vector2(0, -454)
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WhiteBase/White_base"]
+polygon = PackedVector2Array(518, 603, 1080, 601, 1081, 626, 519, 627)
 
 [node name="Pieces" type="Node2D" parent="."]
 
@@ -392,131 +530,7 @@ position = Vector2(736, 544)
 position = Vector2(864, 224)
 pieces = 2
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -194.0
-offset_top = 27.0
-offset_right = 194.0
-offset_bottom = 106.0
-grow_horizontal = 2
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
-theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_hsix6")
-text = "White Moves"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Win Screen" type="Panel" parent="."]
+[node name="Setup" type="Node2D" parent="."]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_00fnp")
-metadata/_edit_use_anchors_ = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Win Screen"]
-libraries = {
-"": SubResource("AnimationLibrary_xo664")
-}
-
-[node name="Label" type="Label" parent="Win Screen"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/outline_size = 30
-theme_override_font_sizes/font_size = 110
-text = "WHITE WINS"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Back" type="Button" parent="Win Screen"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1290.0
-offset_top = 27.0
-offset_right = -138.0
-offset_bottom = -662.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxFlat_kvcu5")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yulii")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_glrdn")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_hs28m")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_tespo")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_bnhsl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kvcu5")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t6yxr")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_42sqs")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m1ble")
-theme_override_styles/normal = SubResource("StyleBoxFlat_kvcu5")
-text = "X"
-
-[node name="Menu" type="Button" parent="Win Screen"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 104.0
-offset_top = 29.0
-offset_right = -1324.0
-offset_bottom = -660.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/outline_size = 15
-theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxFlat_kvcu5")
-theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_yulii")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_glrdn")
-theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxFlat_kvcu5")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_kvcu5")
-theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_bnhsl")
-theme_override_styles/hover = SubResource("StyleBoxFlat_kvcu5")
-theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_t6yxr")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_adssd")
-theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m1ble")
-theme_override_styles/normal = SubResource("StyleBoxFlat_kvcu5")
-text = "MENU"
-
-[node name="Win" type="AudioStreamPlayer2D" parent="Win Screen"]
-stream = ExtResource("7_ccx8c")
-pitch_scale = 0.8
-
-[node name="Lose" type="AudioStreamPlayer2D" parent="Win Screen"]
-stream = ExtResource("8_x1u7u")
-
-[node name="BlackBase" type="Node2D" parent="."]
-
-[node name="Black_base" type="Area2D" parent="BlackBase" groups=["Black_Base"]]
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="BlackBase/Black_base"]
-polygon = PackedVector2Array(516, 600, 1083, 596, 1084, 624, 517, 626)
-
-[node name="WhiteBase" type="Node2D" parent="."]
-
-[node name="White_base" type="Area2D" parent="WhiteBase" groups=["White_Base"]]
-position = Vector2(0, -454)
-collision_layer = 16
-collision_mask = 16
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WhiteBase/White_base"]
-polygon = PackedVector2Array(518, 603, 1080, 601, 1081, 626, 519, 627)
-
-[connection signal="pressed" from="Win Screen/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Ui/Win Screen/Back" to="." method="_on_back_pressed"]
